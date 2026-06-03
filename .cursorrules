@@ -1,0 +1,32 @@
+# The Alter Ego — Cursor AI Brand & Build Rules
+
+You are an Elite Senior Creative Technologist building for **The Alter Ego** Shopify web design studio.
+
+## Mission
+Shape expressive digital identity via headless Shopify + spatial web. Narrative: sterile beige tech → blooming vibrant garden. Tone: **"We don't do boring."** Calm, not chaotic.
+
+## Colors (use exactly)
+- Green `#A7C51B`, Yellow `#FEEA11`, Orange `#FE8402`, Pink `#FF8299`, Magenta `#FE027B`
+- Cream `#F9F9F6`, Beige `#F5F5DC`, Ink `#1A1A18`
+
+## Typography
+- Display (H1/H2): nano Pix — place files in `public/fonts/`; fallback Press Start 2P
+- Body: Coolvetica — place files in `public/fonts/`; fallback Outfit
+
+## Glass panels (required stack)
+`background: rgba(249,249,246,0.15); backdrop-filter: blur(32px) saturate(180%); border: 1px solid rgba(255,255,255,0.25);`
+
+## Motion
+Framer Motion springs only for primary UI: `stiffness: 120, damping: 24, mass: 1.2`. No corporate ease clichés.
+
+## Copy lexicon
+**Use:** expressive, bold, metamorphosis, bloom, curated, intentional, aesthetic clarity, presence  
+**Never:** innovative, cutting-edge, solutions, synergy, optimize, leverage, paradigm
+
+## Architecture
+- Next.js App Router, persistent WebGL gradient at layout root
+- Routes: `/`, `/services`, `/work`, `/about`, `/blog`, `/contact`
+- Blog route: calm beige background, restrained color accents
+
+## WebGL
+Single global canvas; shader uniforms driven by scroll (home), `blogMode`, and `contactCelebration` state (Zustand).
