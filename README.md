@@ -1,6 +1,6 @@
 # The Alter Ego — Official Website
 
-Custom Shopify flagships and art direction for fashion and lifestyle brands. Built with Next.js, WebGL mesh gradients, scroll-driven metamorphosis on the home page, and high-contrast glass UI.
+Custom Shopify flagships and art direction for fashion, music, and lifestyle. Built with Next.js, WebGL mesh gradients, scroll-driven metamorphosis on the home page, and high-contrast glass UI.
 
 ## Run locally
 

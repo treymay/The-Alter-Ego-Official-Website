@@ -4,7 +4,6 @@ import Image from "next/image";
 import { CASE_STUDIES, type CaseStudy } from "@/lib/portfolio";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageHero } from "@/components/layout/PageHero";
-import { GlassContainer } from "@/components/ui/GlassContainer";
 import { cn } from "@/lib/utils";
 
 function CaseStudyCard({ item }: { item: CaseStudy }) {
@@ -61,16 +60,13 @@ function CaseStudySection({
 }) {
   return (
     <section>
-      <GlassContainer className="mb-8 p-6 md:p-8">
-        <div className={cn("mb-5 h-1 w-16 rounded-full", accentBar)} />
+      <header className="mb-10">
+        <div className={cn("mb-4 h-1 w-14 rounded-full", accentBar)} />
         <p className="font-body text-xs font-bold uppercase tracking-[0.3em] text-ink/45">
           {subtitle}
         </p>
         <h2 className="font-display mt-2 text-ink">{title}</h2>
-        <p className="font-body mt-3 max-w-lg text-sm text-ink/55">
-          {items.length} projects — replace placeholders with your case study imagery and links.
-        </p>
-      </GlassContainer>
+      </header>
 
       <div className="grid gap-5 sm:grid-cols-2">
         {items.map((item) => (

@@ -1,4 +1,10 @@
-export const WHO_WE_ARE =
-  "We design custom Shopify flagships and art direction for fashion and lifestyle brands. Blending high-end visuals with e-commerce UX to turn brand identity into revenue.";
+export const STUDIO_TAGLINE =
+  "Custom Shopify flagships & art direction for fashion, music, and lifestyle.";
+
+export const STUDIO_MISSION =
+  "Blending high-end visuals with e-commerce UX to turn brand identity into revenue.";
+
+/** Full block for footer / about panels */
+export const WHO_WE_ARE = `${STUDIO_TAGLINE} ${STUDIO_MISSION}`;
 
 export const CONTACT_EMAIL = "treymayofficial@gmail.com";

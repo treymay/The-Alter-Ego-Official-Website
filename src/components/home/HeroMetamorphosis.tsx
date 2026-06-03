@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { GlassContainer } from "@/components/ui/GlassContainer";
-import { WHO_WE_ARE } from "@/lib/copy";
+import { STUDIO_MISSION, STUDIO_TAGLINE } from "@/lib/copy";
 
 export function HeroMetamorphosis() {
   return (
@@ -10,12 +10,10 @@ export function HeroMetamorphosis() {
           The Alter Ego Studio
         </p>
         <h1 className="font-display mt-4 max-w-5xl text-ink">WE DON&apos;T DO BORING.</h1>
-        <p className="font-heading mt-5 max-w-xl text-ink/85">
-          Custom Shopify flagships & art direction for fashion and lifestyle.
-        </p>
+        <p className="font-heading mt-5 max-w-2xl text-ink/90">{STUDIO_TAGLINE}</p>
         <GlassContainer className="mt-10 max-w-2xl p-6 md:p-9">
           <p className="font-body text-base leading-relaxed text-ink/85 md:text-lg">
-            {WHO_WE_ARE}
+            {STUDIO_MISSION}
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link

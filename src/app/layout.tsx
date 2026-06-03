@@ -14,7 +14,7 @@ const bodyFont = Outfit({
 export const metadata: Metadata = {
   title: "The Alter Ego | Custom Shopify & Art Direction",
   description:
-    "Custom Shopify flagships and art direction for fashion and lifestyle brands. High-end visuals meet e-commerce UX.",
+    "Custom Shopify flagships and art direction for fashion, music, and lifestyle. Blending high-end visuals with e-commerce UX.",
 };
 
 export default function RootLayout({

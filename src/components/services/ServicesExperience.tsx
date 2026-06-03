@@ -75,11 +75,7 @@ function ShopifyScrollPanel() {
       exit={{ opacity: 0 }}
       className="space-y-10"
     >
-      <ServiceExampleCarousel
-        images={SHOPIFY_EXAMPLE_IMAGES}
-        accent="orange"
-        title="Shopify examples"
-      />
+      <ServiceExampleCarousel images={SHOPIFY_EXAMPLE_IMAGES} accent="orange" />
 
       <GlassContainer className="overflow-hidden p-0">
         <div className="h-2 bg-gradient-to-r from-brand-orange via-brand-yellow to-brand-pink" />
@@ -123,11 +119,7 @@ function ArtDirectionScrollPanel() {
       exit={{ opacity: 0 }}
       className="space-y-8"
     >
-      <ServiceExampleCarousel
-        images={ART_DIRECTION_EXAMPLE_IMAGES}
-        accent="pink"
-        title="Art direction examples"
-      />
+      <ServiceExampleCarousel images={ART_DIRECTION_EXAMPLE_IMAGES} accent="pink" />
 
       <GlassContainer className="overflow-hidden p-0">
         <div className="h-2 bg-gradient-to-r from-brand-pink via-brand-green to-brand-yellow" />
