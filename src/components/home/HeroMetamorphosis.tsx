@@ -17,9 +17,6 @@ export function HeroMetamorphosis() {
           <p className="font-body text-lg leading-relaxed text-ink/85">
             {WHO_WE_ARE}
           </p>
-          <p className="font-body mt-6 text-xs uppercase tracking-[0.2em] text-ink/45">
-            Keep scrolling — full metamorphosis below
-          </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
               href="/work"
