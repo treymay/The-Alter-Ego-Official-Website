@@ -4,65 +4,53 @@ import { motion } from "framer-motion";
 import { BRAND } from "@/lib/brand";
 import { GlassContainer } from "@/components/ui/GlassContainer";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { cn } from "@/lib/utils";
 
-const accents = [
-  "border-l-brand-green",
-  "border-l-brand-yellow",
-  "border-l-brand-orange",
-  "border-l-brand-pink",
-  "border-l-magenta",
-  "border-l-brand-green",
-];
-
-const spanClass = [
-  "lg:col-span-2",
-  "",
-  "",
-  "lg:row-span-2",
-  "",
-  "lg:col-span-2",
-];
+const accentBars = [
+  "bg-brand-green",
+  "bg-brand-yellow",
+  "bg-brand-orange",
+  "bg-brand-pink",
+  "bg-magenta",
+  "bg-brand-green",
+] as const;
 
 export function ValueGrid() {
   return (
     <section className="relative z-10 px-4 py-20 md:px-8">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="Core tenets"
           title="Style meets strategy"
           description="Creativity with intention. Calm, not chaotic."
+          className="mx-auto text-center md:max-w-2xl"
+          titleClassName="text-center"
         />
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:auto-rows-fr">
+
+        <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
           {BRAND.values.map((value, i) => (
             <motion.div
               key={value}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
+              viewport={{ once: true, margin: "-40px" }}
               transition={{
                 type: "spring",
                 stiffness: 120,
                 damping: 24,
                 delay: i * 0.04,
               }}
-              className={spanClass[i]}
+              className="h-full"
             >
-              <GlassContainer
-                className={`group flex h-full flex-col justify-between border-l-4 p-6 md:p-7 ${accents[i]}`}
-              >
-                <div>
-                  <p className="font-display text-xl text-ink md:text-2xl">{value}</p>
-                  <p className="font-body mt-3 text-sm leading-relaxed text-ink/65">
-                    Distinct, curated presence for brands ready to bloom past generic
-                    ecommerce.
-                  </p>
-                </div>
-                <div
-                  className="lotus-orbit mt-8 flex h-14 w-14 items-center justify-center rounded-full border border-dashed border-brand-pink/50"
+              <GlassContainer className="flex h-full min-h-[200px] flex-col items-center justify-center p-6 text-center md:min-h-[220px] md:p-8">
+                <span
+                  className={cn("mb-4 block h-1 w-10 rounded-full", accentBars[i])}
                   aria-hidden
-                >
-                  <div className="h-6 w-6 rounded-full border-2 border-brand-green/70 transition duration-700 group-hover:rotate-180 group-hover:border-brand-orange" />
-                </div>
+                />
+                <p className="font-display text-xl text-ink">{value}</p>
+                <p className="font-body mt-3 max-w-[16rem] text-sm leading-relaxed text-ink/60">
+                  Curated presence for brands moving past generic ecommerce.
+                </p>
               </GlassContainer>
             </motion.div>
           ))}

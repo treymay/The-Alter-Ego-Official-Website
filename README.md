@@ -39,6 +39,17 @@ Place files under `public/` using the paths below. After adding assets, update t
 | Shopify capture | `public/images/home/shopify-storefront.jpg` | Top-right tile |
 | Art direction still | `public/images/home/art-direction.jpg` | Bottom-right tile |
 
+### Services page — example carousels
+
+Horizontal scroll galleries on **Services** for Shopify and Art Direction. Edit the list in `src/lib/service-examples.ts` or drop files here:
+
+| Service | Folder | Config |
+|---------|--------|--------|
+| Custom Shopify Development | `public/images/services/shopify/` | `SHOPIFY_EXAMPLE_IMAGES` in `src/lib/service-examples.ts` |
+| Art Direction | `public/images/services/art-direction/` | `ART_DIRECTION_EXAMPLE_IMAGES` in `src/lib/service-examples.ts` |
+
+Each entry: `{ src: "/images/services/shopify/01.jpg", alt: "…", label: "Optional caption" }`.
+
 ### Case studies — Shopify web design (6)
 
 Upload one image per project (landscape or portrait, min ~1200px wide). Then set `image: "/images/work/…"` in `src/lib/portfolio.ts`.

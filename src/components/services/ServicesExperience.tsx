@@ -3,6 +3,11 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ART_DIRECTION_SERVICE, SHOPIFY_SERVICE } from "@/lib/services";
+import {
+  ART_DIRECTION_EXAMPLE_IMAGES,
+  SHOPIFY_EXAMPLE_IMAGES,
+} from "@/lib/service-examples";
+import { ServiceExampleCarousel } from "@/components/services/ServiceExampleCarousel";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageHero } from "@/components/layout/PageHero";
 import { GlassContainer } from "@/components/ui/GlassContainer";
@@ -70,6 +75,12 @@ function ShopifyScrollPanel() {
       exit={{ opacity: 0 }}
       className="space-y-10"
     >
+      <ServiceExampleCarousel
+        images={SHOPIFY_EXAMPLE_IMAGES}
+        accent="orange"
+        title="Shopify examples"
+      />
+
       <GlassContainer className="overflow-hidden p-0">
         <div className="h-2 bg-gradient-to-r from-brand-orange via-brand-yellow to-brand-pink" />
         <div className="p-8">
@@ -112,6 +123,12 @@ function ArtDirectionScrollPanel() {
       exit={{ opacity: 0 }}
       className="space-y-8"
     >
+      <ServiceExampleCarousel
+        images={ART_DIRECTION_EXAMPLE_IMAGES}
+        accent="pink"
+        title="Art direction examples"
+      />
+
       <GlassContainer className="overflow-hidden p-0">
         <div className="h-2 bg-gradient-to-r from-brand-pink via-brand-green to-brand-yellow" />
         <div className="p-8">
