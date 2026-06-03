@@ -27,20 +27,31 @@ export function ContactForm() {
 
   return (
     <>
-      <form onSubmit={onSubmit} className="mt-12 space-y-6">
-        {fields.map((field) => (
+      <GlassContainer className="p-6 md:p-8">
+        <p className="font-body text-xs font-semibold uppercase tracking-widest text-ink/50">
+          Project inquiry
+        </p>
+      <form onSubmit={onSubmit} className="mt-6 space-y-5">
+        {fields.map((field) => {
+          const isFocused = focused === field.id;
+          const ringColor =
+            field.id === "email" || field.id === "name"
+              ? "ring-brand-yellow/70"
+              : "ring-brand-pink/60";
+
+          return (
           <GlassContainer
             key={field.id}
             className={cn(
-              "p-1 transition-shadow",
-              focused === field.id && "ring-2 ring-brand-pink/50",
+              "relative transition-shadow",
+              isFocused && `ring-2 ${ringColor}`,
             )}
           >
             <label
               htmlFor={field.id}
               className={cn(
-                "block px-4 pt-3 font-body text-xs font-semibold uppercase tracking-widest transition",
-                focused === field.id ? "text-magenta" : "text-ink/45",
+                "pointer-events-none absolute left-4 font-body text-xs font-semibold uppercase tracking-widest transition-all",
+                isFocused ? "top-2 text-magenta" : "top-4 text-ink/40"
               )}
             >
               {field.label}
@@ -51,9 +62,10 @@ export function ContactForm() {
                 name={field.id}
                 rows={5}
                 required
+                placeholder=" "
                 onFocus={() => setFocused(field.id)}
                 onBlur={() => setFocused(null)}
-                className="w-full resize-none bg-transparent px-4 pb-4 font-body text-ink outline-none"
+                className="w-full resize-none bg-transparent px-4 pb-4 pt-8 font-body text-ink outline-none"
               />
             ) : (
               <input
@@ -61,13 +73,15 @@ export function ContactForm() {
                 name={field.id}
                 type={field.type}
                 required
+                placeholder=" "
                 onFocus={() => setFocused(field.id)}
                 onBlur={() => setFocused(null)}
-                className="w-full bg-transparent px-4 pb-4 font-body text-ink outline-none"
+                className="w-full bg-transparent px-4 pb-4 pt-8 font-body text-ink outline-none"
               />
             )}
           </GlassContainer>
-        ))}
+        );
+        })}
 
         <motion.button
           type="submit"
@@ -79,6 +93,7 @@ export function ContactForm() {
           Send Message
         </motion.button>
       </form>
+      </GlassContainer>
 
       <AnimatePresence>
         {sent && (

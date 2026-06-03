@@ -33,15 +33,19 @@ export function BlogArticle({ post, children }: Props) {
         style={{ scaleX, background: gradient }}
         className="fixed top-0 left-0 right-0 z-[60] h-1 origin-left"
       />
-      <div ref={ref} className="mx-auto max-w-[42rem]">
-        <p className="font-body text-xs uppercase tracking-[0.25em] text-magenta">
-          {post.category}
-        </p>
-        <h1 className="font-display mt-4 text-ink">{post.title}</h1>
-        <p className="font-body mt-3 text-sm text-ink/50">
-          {post.date} · {post.readTime}
-        </p>
-        <div className="prose-alter mt-12">{children}</div>
+      <div ref={ref} className="mx-auto max-w-[65ch]">
+        <header className="border-b border-ink/10 pb-10">
+          <p className="font-body text-xs font-semibold uppercase tracking-[0.25em] text-magenta">
+            {post.category}
+          </p>
+          <h1 className="font-display mt-4 text-ink">{post.title}</h1>
+          <p className="font-body mt-4 text-sm text-ink/50">
+            {post.date} · {post.readTime}
+          </p>
+        </header>
+        <div className="prose-alter mt-12 font-body text-[1.05rem] leading-[1.75] text-ink/85">
+          {children}
+        </div>
       </div>
     </article>
   );

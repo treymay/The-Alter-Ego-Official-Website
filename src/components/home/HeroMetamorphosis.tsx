@@ -4,17 +4,17 @@ import { WHO_WE_ARE } from "@/lib/copy";
 
 export function HeroMetamorphosis() {
   return (
-    <section className="relative min-h-screen px-4 pt-32 md:px-8">
-      <div className="mx-auto flex min-h-[70vh] max-w-7xl flex-col justify-center">
-        <p className="font-body text-xs font-medium uppercase tracking-[0.3em] text-ink/50">
-          Custom Shopify · Art Direction
+    <section className="relative flex min-h-screen flex-col justify-center px-4 pt-28 md:px-8">
+      <div className="mx-auto w-full max-w-7xl">
+        <p className="font-body text-xs font-medium uppercase tracking-[0.35em] text-ink/45">
+          The Alter Ego Studio
         </p>
-        <h1 className="font-display mt-6 text-ink">The Alter Ego</h1>
-        <p className="font-heading mt-4 text-ink/90">
-          Flagship stores for fashion & lifestyle
+        <h1 className="font-display mt-4 max-w-5xl text-ink">WE DON&apos;T DO BORING.</h1>
+        <p className="font-heading mt-5 max-w-xl text-ink/85">
+          Custom Shopify flagships & art direction for fashion and lifestyle.
         </p>
-        <GlassContainer className="mt-10 max-w-2xl p-6 md:p-8">
-          <p className="font-body text-lg leading-relaxed text-ink/85">
+        <GlassContainer className="mt-10 max-w-2xl p-6 md:p-9">
+          <p className="font-body text-base leading-relaxed text-ink/85 md:text-lg">
             {WHO_WE_ARE}
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
@@ -25,10 +25,10 @@ export function HeroMetamorphosis() {
               Case Studies
             </Link>
             <Link
-              href="/contact"
-              className="rounded-full border border-ink/25 bg-white/50 px-6 py-3 font-body text-xs font-semibold uppercase tracking-widest text-ink hover:border-magenta hover:text-magenta"
+              href="/services"
+              className="rounded-full border border-ink/20 bg-white/60 px-6 py-3 font-body text-xs font-semibold uppercase tracking-widest text-ink hover:border-brand-orange hover:text-brand-orange"
             >
-              Contact
+              Services
             </Link>
           </div>
         </GlassContainer>

@@ -1,20 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  ART_DIRECTION_SERVICE,
-  SHOPIFY_SERVICE,
-  type ShopifyFeatureGroup,
-} from "@/lib/services";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ART_DIRECTION_SERVICE, SHOPIFY_SERVICE } from "@/lib/services";
+import { PageShell } from "@/components/layout/PageShell";
+import { PageHero } from "@/components/layout/PageHero";
 import { GlassContainer } from "@/components/ui/GlassContainer";
+import { ServiceColorPanel } from "@/components/services/ServiceColorPanel";
+import { useBrandStore } from "@/store/useBrandStore";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 const SERVICE_TABS = [
-  { id: "shopify" as const, label: SHOPIFY_SERVICE.title },
-  { id: "art-direction" as const, label: ART_DIRECTION_SERVICE.title },
+  { id: "shopify" as const, label: SHOPIFY_SERVICE.title, short: "Shopify" },
+  {
+    id: "art-direction" as const,
+    label: ART_DIRECTION_SERVICE.title,
+    short: "Art Direction",
+  },
 ];
 
 const accentBar = {
@@ -29,174 +32,205 @@ const accentText = {
   green: "text-brand-green",
 };
 
-function ShopifyPanel() {
+function DeliverableCard({
+  name,
+  detail,
+  index,
+}: {
+  name: string;
+  detail?: string;
+  index: number;
+}) {
   return (
     <motion.div
-      key="shopify-panel"
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -8 }}
-      transition={{ type: "spring", stiffness: 120, damping: 24 }}
-      className="space-y-8"
+      transition={{
+        type: "spring",
+        stiffness: 120,
+        damping: 24,
+        delay: index * 0.03,
+      }}
+      className="rounded-xl border border-ink/8 bg-white/80 p-5 shadow-sm"
+    >
+      <p className="font-body text-sm font-semibold text-ink">{name}</p>
+      {detail && (
+        <p className="font-body mt-2 text-xs leading-relaxed text-ink/60">{detail}</p>
+      )}
+    </motion.div>
+  );
+}
+
+function ShopifyScrollPanel() {
+  return (
+    <motion.div
+      key="shopify-scroll"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="space-y-10"
     >
       <GlassContainer className="overflow-hidden p-0">
-        <div className="h-2 bg-gradient-to-r from-brand-orange via-brand-pink to-brand-green" />
-        <div className="p-8 md:p-10">
+        <div className="h-2 bg-gradient-to-r from-brand-orange via-brand-yellow to-brand-pink" />
+        <div className="p-8">
           <p className="font-body text-xs font-semibold uppercase tracking-widest text-ink/50">
-            Conversion through art direction
+            Aesthetic clarity
           </p>
-          <p className="font-body mt-4 max-w-2xl text-lg leading-relaxed text-ink/80">
+          <p className="font-body mt-4 text-lg leading-relaxed text-ink/80">
             {SHOPIFY_SERVICE.lead}
           </p>
         </div>
       </GlassContainer>
 
-      <div className="grid gap-6 lg:grid-cols-3">
-        {SHOPIFY_SERVICE.featureGroups.map((group) => (
-          <FeatureGroupColumn key={group.title} group={group} />
-        ))}
-      </div>
+      {SHOPIFY_SERVICE.featureGroups.map((group) => (
+        <div key={group.title}>
+          <h4 className={cn("font-heading text-sm", accentText[group.accent])}>
+            {group.title}
+          </h4>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            {group.items.map((item, i) => (
+              <DeliverableCard
+                key={item.name}
+                name={item.name}
+                detail={item.detail}
+                index={i}
+              />
+            ))}
+          </div>
+        </div>
+      ))}
     </motion.div>
   );
 }
 
-function FeatureGroupColumn({ group }: { group: ShopifyFeatureGroup }) {
-  return (
-    <GlassContainer className="flex h-full flex-col p-0 overflow-hidden">
-      <div className={cn("h-1.5 w-full", accentBar[group.accent])} />
-      <div className="flex flex-1 flex-col p-5 md:p-6">
-        <h4 className={cn("font-heading text-sm", accentText[group.accent])}>
-          {group.title}
-        </h4>
-        <ul className="mt-5 flex flex-1 flex-col gap-4">
-          {group.items.map((item) => (
-            <li
-              key={item.name}
-              className="rounded-xl border border-ink/8 bg-white/60 p-4"
-            >
-              <p className="font-body text-sm font-semibold text-ink">{item.name}</p>
-              {item.detail && (
-                <p className="font-body mt-1.5 text-xs leading-relaxed text-ink/60">
-                  {item.detail}
-                </p>
-              )}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </GlassContainer>
-  );
-}
-
-function ArtDirectionPanel() {
+function ArtDirectionScrollPanel() {
   return (
     <motion.div
-      key="art-panel"
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -8 }}
-      transition={{ type: "spring", stiffness: 120, damping: 24 }}
-      className="space-y-6"
+      key="art-scroll"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="space-y-8"
     >
       <GlassContainer className="overflow-hidden p-0">
-        <div className="h-2 bg-gradient-to-r from-brand-pink via-brand-yellow to-brand-green" />
-        <div className="p-8 md:p-10">
-          <span className="inline-block rounded-full bg-brand-yellow px-3 py-1 font-body text-[0.65rem] font-bold uppercase tracking-widest text-ink">
+        <div className="h-2 bg-gradient-to-r from-brand-pink via-brand-green to-brand-yellow" />
+        <div className="p-8">
+          <span className="rounded-full bg-brand-yellow px-3 py-1 font-body text-[0.65rem] font-bold uppercase tracking-widest text-ink">
             {ART_DIRECTION_SERVICE.badge}
           </span>
-          <p className="font-body mt-5 max-w-2xl text-lg leading-relaxed text-ink/80">
+          <p className="font-body mt-5 text-lg leading-relaxed text-ink/80">
             {ART_DIRECTION_SERVICE.lead}
           </p>
         </div>
       </GlassContainer>
 
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="space-y-3">
         {ART_DIRECTION_SERVICE.capabilities.map((item, i) => (
-          <div
-            key={item}
-            className="flex gap-4 rounded-2xl border border-ink/10 bg-white/70 p-5 shadow-sm"
-          >
-            <span className="font-body text-lg font-bold text-brand-pink">
-              {String(i + 1).padStart(2, "0")}
-            </span>
-            <p className="font-body text-sm leading-relaxed text-ink/80">{item}</p>
-          </div>
+          <DeliverableCard key={item} name={item} index={i} />
         ))}
       </div>
 
-      <GlassContainer className="p-6 md:p-8">
-        <p className="font-body text-xs font-semibold uppercase tracking-widest text-ink/50">
-          Delivered across
-        </p>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {ART_DIRECTION_SERVICE.channels.map((ch) => (
-            <span
-              key={ch}
-              className="rounded-full border border-brand-green/40 bg-brand-green/15 px-4 py-1.5 font-body text-xs font-semibold uppercase tracking-wider text-ink"
-            >
-              {ch}
-            </span>
-          ))}
-        </div>
-      </GlassContainer>
+      <div className="flex flex-wrap gap-2">
+        {ART_DIRECTION_SERVICE.channels.map((ch) => (
+          <span
+            key={ch}
+            className="rounded-full border border-brand-pink/30 bg-brand-pink/10 px-3 py-1 font-body text-xs font-semibold uppercase tracking-wider text-ink"
+          >
+            {ch}
+          </span>
+        ))}
+      </div>
     </motion.div>
   );
 }
 
 export function ServicesExperience() {
   const [active, setActive] = useState<"shopify" | "art-direction">("shopify");
-  const isShopify = active === "shopify";
+  const setServiceEnergy = useBrandStore((s) => s.setServiceEnergy);
+
+  useEffect(() => {
+    setServiceEnergy(active);
+    return () => setServiceEnergy(null);
+  }, [active, setServiceEnergy]);
+
+  const activeTab = SERVICE_TABS.find((t) => t.id === active)!;
 
   return (
-    <div className="px-4 pt-32 pb-24 md:px-8">
-      <div className="mx-auto max-w-7xl">
-        <SectionHeading
-          eyebrow="Services"
-          title="Shopify & Art Direction"
-          description="Select a service—the panel on the right reshapes into a dedicated layout."
-        />
+    <PageShell width="wide">
+      <PageHero
+        eyebrow="Services"
+        title="Intentional design"
+        description="Sticky navigation, scrolling deliverables, and color that shifts with each practice—Shopify development and art direction."
+        size="large"
+      />
 
-        <div className="mt-16 grid gap-10 lg:grid-cols-[minmax(260px,1fr)_2.2fr]">
-          <div className="lg:sticky lg:top-32 lg:self-start">
-            <GlassContainer className="p-6">
-              <ul className="space-y-2">
-                {SERVICE_TABS.map((tab) => (
-                  <li key={tab.id}>
-                    <button
-                      type="button"
-                      onClick={() => setActive(tab.id)}
+      <div className="grid gap-8 lg:grid-cols-[minmax(220px,280px)_1fr_minmax(200px,260px)]">
+        <aside className="lg:sticky lg:top-28 lg:self-start">
+          <GlassContainer className="p-5">
+            <p className="font-body text-[0.65rem] font-semibold uppercase tracking-widest text-ink/45">
+              Select service
+            </p>
+            <ul className="mt-4 space-y-2">
+              {SERVICE_TABS.map((tab) => (
+                <li key={tab.id}>
+                  <button
+                    type="button"
+                    onClick={() => setActive(tab.id)}
+                    className={cn(
+                      "w-full rounded-xl px-4 py-3 text-left transition",
+                      active === tab.id
+                        ? "bg-magenta text-white"
+                        : "hover:bg-white/90",
+                    )}
+                  >
+                    <span className="font-heading block text-sm">{tab.short}</span>
+                    <span
                       className={cn(
-                        "w-full rounded-xl px-4 py-3 text-left font-heading text-sm transition",
-                        active === tab.id
-                          ? "bg-magenta text-white"
-                          : "text-ink/45 hover:bg-white/80 hover:text-ink",
+                        "font-body mt-0.5 block text-[0.65rem] uppercase tracking-wider",
+                        active === tab.id ? "text-white/80" : "text-ink/45",
                       )}
                     >
-                      {tab.label}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-6 h-1 w-full rounded-full bg-gradient-to-r from-brand-orange via-brand-pink to-brand-green" />
-            </GlassContainer>
-          </div>
+                      {tab.id === "shopify" ? "Live now" : "Coming fall"}
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </GlassContainer>
+          <p className="font-body mt-6 hidden text-sm leading-relaxed text-ink/60 lg:block">
+            {active === "shopify"
+              ? SHOPIFY_SERVICE.lead
+              : ART_DIRECTION_SERVICE.lead}
+          </p>
+        </aside>
 
-          <div className="min-h-[480px]">
-            <AnimatePresence mode="wait">
-              {isShopify ? <ShopifyPanel /> : <ArtDirectionPanel />}
-            </AnimatePresence>
+        <div className="min-w-0">
+          <div className="mb-6 flex items-center justify-between gap-4 border-b border-ink/10 pb-4">
+            <h2 className="font-heading text-ink">{activeTab.label}</h2>
+            <span className="font-body text-xs uppercase tracking-widest text-magenta">
+              Scroll deliverables ↓
+            </span>
           </div>
+          <AnimatePresence mode="wait">
+            {active === "shopify" ? (
+              <ShopifyScrollPanel />
+            ) : (
+              <ArtDirectionScrollPanel />
+            )}
+          </AnimatePresence>
         </div>
 
-        <div className="mt-20 text-center">
-          <Link
-            href="/contact"
-            className="inline-block rounded-full bg-magenta px-8 py-4 font-body text-xs font-semibold uppercase tracking-widest text-white hover:bg-ink"
-          >
-            Start a project
-          </Link>
-        </div>
+        <ServiceColorPanel energy={active} />
       </div>
-    </div>
+
+      <div className="mt-20 text-center">
+        <Link
+          href="/contact"
+          className="inline-block rounded-full bg-magenta px-8 py-4 font-body text-xs font-semibold uppercase tracking-widest text-white hover:bg-ink"
+        >
+          Start a project
+        </Link>
+      </div>
+    </PageShell>
   );
 }

@@ -2,85 +2,85 @@
 
 import Image from "next/image";
 import { CASE_STUDIES, type CaseStudy } from "@/lib/portfolio";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { GlassContainer } from "@/components/ui/GlassContainer";
+import { PageShell } from "@/components/layout/PageShell";
+import { PageHero } from "@/components/layout/PageHero";
 import { cn } from "@/lib/utils";
 
-function CaseStudyRow({ item }: { item: CaseStudy }) {
+const aspectClass = {
+  portrait: "row-span-2 min-h-[320px]",
+  landscape: "min-h-[240px]",
+  wide: "md:col-span-2 min-h-[260px]",
+};
+
+function GalleryCard({ item }: { item: CaseStudy }) {
   const isShopify = item.category === "SHOPIFY";
 
   return (
-    <article className="group grid overflow-hidden rounded-2xl border border-ink/10 bg-white/90 shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition hover:shadow-[0_16px_48px_rgba(0,0,0,0.12)] md:grid-cols-[220px_1fr]">
-      <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[200px]">
-        <Image
-          src={item.image}
-          alt={item.title}
-          fill
-          className="object-cover transition duration-500 group-hover:scale-[1.02]"
-          sizes="220px"
-        />
-        <div className="absolute inset-0 flex items-center justify-center bg-ink/20 opacity-0 transition group-hover:opacity-100">
-          <span className="rounded border border-white/50 bg-white/20 px-3 py-1.5 font-body text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-sm">
-            Case study soon
-          </span>
-        </div>
-      </div>
-      <div className="flex flex-col justify-center gap-2 p-6 md:p-8">
-        <h3 className="font-heading text-xl text-ink md:text-2xl">{item.title}</h3>
+    <article
+      className={cn(
+        "group relative overflow-hidden rounded-2xl border border-white/70 bg-white/90 shadow-[0_10px_40px_rgba(0,0,0,0.08)]",
+        aspectClass[item.aspect],
+      )}
+    >
+      <Image
+        src={item.image}
+        alt={item.title}
+        fill
+        className="object-cover grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0 group-hover:saturate-110"
+        sizes="(max-width: 768px) 100vw, 40vw"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+        <h3 className="font-heading text-xl text-white md:text-2xl">{item.title}</h3>
         {isShopify ? (
-          <p className="font-body text-xs font-semibold uppercase tracking-widest text-brand-orange">
+          <p className="font-body mt-2 text-xs font-semibold uppercase tracking-widest text-brand-yellow">
             View the website →
           </p>
         ) : (
-          <p className="font-body text-xs font-semibold uppercase tracking-widest text-brand-pink">
-            Art direction project
+          <p className="font-body mt-2 text-xs font-semibold uppercase tracking-widest text-brand-pink">
+            Art direction
           </p>
         )}
-        {item.websiteUrl && (
-          <a
-            href={item.websiteUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-body text-xs text-magenta hover:underline"
-          >
-            Open live site
-          </a>
-        )}
+      </div>
+      <div className="absolute inset-0 flex items-center justify-center opacity-0 transition group-hover:opacity-100">
+        <span className="rounded border border-white/50 bg-white/15 px-4 py-2 font-body text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-md">
+          Case study — coming soon
+        </span>
       </div>
     </article>
   );
 }
 
-function WorkSection({
+function GallerySection({
   title,
   subtitle,
-  accentClass,
   barClass,
   items,
 }: {
   title: string;
   subtitle: string;
-  accentClass: string;
   barClass: string;
   items: CaseStudy[];
 }) {
   return (
-    <section className="relative">
-      <div className={cn("mb-8 h-1 w-full rounded-full", barClass)} />
-      <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-        <div>
-          <p className={cn("font-body text-xs font-bold uppercase tracking-[0.3em]", accentClass)}>
-            {subtitle}
+    <section className="space-y-10">
+      <div>
+        <div className={cn("h-1.5 w-full rounded-full", barClass)} />
+        <div className="mt-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="font-body text-xs font-bold uppercase tracking-[0.3em] text-ink/50">
+              {subtitle}
+            </p>
+            <h2 className="font-display mt-2 text-ink">{title}</h2>
+          </div>
+          <p className="font-body max-w-xs text-sm text-ink/55">
+            Premium negative space. Hover to bring color back into each frame.
           </p>
-          <h3 className="font-display mt-2 text-3xl text-ink md:text-4xl">{title}</h3>
         </div>
-        <p className="font-body max-w-sm text-sm text-ink/55">
-          {items.length} projects — placeholders ready for your case study copy and imagery.
-        </p>
       </div>
-      <div className="mt-10 flex flex-col gap-5">
+      <div className="grid auto-rows-[200px] grid-cols-1 gap-6 md:grid-cols-2 lg:auto-rows-[220px]">
         {items.map((item) => (
-          <CaseStudyRow key={item.id} item={item} />
+          <GalleryCard key={item.id} item={item} />
         ))}
       </div>
     </section>
@@ -92,42 +92,37 @@ export function WorkGallery() {
   const artDirection = CASE_STUDIES.filter((c) => c.category === "ART DIRECTION");
 
   return (
-    <div className="px-4 pt-32 pb-24 md:px-8">
-      <div className="mx-auto max-w-5xl">
-        <SectionHeading
-          eyebrow="Work"
-          title="Case Studies"
-          description="Two distinct practices—Shopify web design and art direction—presented separately for clarity."
+    <PageShell width="wide">
+      <PageHero
+        eyebrow="Work"
+        title="Case studies"
+        description="A digital gallery—Shopify web design and art direction in two distinct chapters, masonry rhythm, and room to breathe."
+        size="large"
+      />
+
+      <div className="space-y-28">
+        <GallerySection
+          title="Shopify web design"
+          subtitle="E-commerce flagships"
+          barClass="bg-gradient-to-r from-brand-orange via-brand-yellow to-transparent"
+          items={shopify}
         />
 
-        <div className="mt-16 space-y-24">
-          <WorkSection
-            title="Shopify Web Design"
-            subtitle="E-commerce flagships"
-            accentClass="text-brand-orange"
-            barClass="bg-gradient-to-r from-brand-orange via-brand-yellow to-brand-orange/30"
-            items={shopify}
-          />
-
-          <div className="flex items-center gap-4">
-            <div className="h-px flex-1 bg-ink/10" />
-            <GlassContainer className="px-4 py-2" subtle>
-              <span className="font-body text-[0.65rem] font-semibold uppercase tracking-widest text-ink/50">
-                Also
-              </span>
-            </GlassContainer>
-            <div className="h-px flex-1 bg-ink/10" />
-          </div>
-
-          <WorkSection
-            title="Art Direction"
-            subtitle="Campaign & identity"
-            accentClass="text-brand-pink"
-            barClass="bg-gradient-to-r from-brand-pink via-brand-green to-brand-pink/30"
-            items={artDirection}
-          />
+        <div className="flex items-center gap-6">
+          <div className="h-px flex-1 bg-ink/10" />
+          <p className="font-body text-[0.65rem] font-semibold uppercase tracking-[0.35em] text-ink/40">
+            Separate practice
+          </p>
+          <div className="h-px flex-1 bg-ink/10" />
         </div>
+
+        <GallerySection
+          title="Art direction"
+          subtitle="Campaign & identity"
+          barClass="bg-gradient-to-r from-brand-pink via-brand-green to-transparent"
+          items={artDirection}
+        />
       </div>
-    </div>
+    </PageShell>
   );
 }
