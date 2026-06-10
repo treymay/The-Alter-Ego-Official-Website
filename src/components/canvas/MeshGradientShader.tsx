@@ -3,6 +3,7 @@
 import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
+import { mousePosition } from "@/lib/mousePosition";
 import { useBrandStore } from "@/store/useBrandStore";
 
 const vertexShader = `
@@ -60,7 +61,7 @@ void main() {
   float g2Blob = blob(uv, green2C, 0.34 * m + 0.04);
   float p2Blob = blob(uv, pink2C, 0.34 * m + 0.04);
   float yBlob = blob(uv, yellowC, 0.36 * m + 0.04);
-  float mBlob = blob(uv, mouseC, 0.26 * m + 0.04);
+  float mBlob = blob(uv, mouseC, 0.14 * m + 0.02);
 
   // Blend blobs over a white base so uncovered areas stay bright, never black.
   // Yellow goes first at low strength so green and pink read on top of it.
@@ -70,7 +71,7 @@ void main() {
   vivid = mix(vivid, brandGreen, g2Blob * 0.6);
   vivid = mix(vivid, brandPink, pBlob * 0.85);
   vivid = mix(vivid, brandPink, p2Blob * 0.55);
-  vivid = mix(vivid, brandMagenta, mBlob * 0.3);
+  vivid = mix(vivid, brandMagenta, mBlob * 0.12);
 
   vec3 sterile = mix(cream, beige, uv.x * 0.4 + uv.y * 0.3);
   vec3 color = mix(sterile, vivid, m);
@@ -100,11 +101,14 @@ export function MeshGradientShader() {
 
   useFrame((state) => {
     if (!materialRef.current) return;
-    const { metamorphosis, mouse, blogMode, contactCelebration } =
+    const { metamorphosis, blogMode, contactCelebration } =
       useBrandStore.getState();
     materialRef.current.uniforms.uTime.value = state.clock.elapsedTime;
     materialRef.current.uniforms.uMetamorphosis.value = metamorphosis;
-    materialRef.current.uniforms.uMouse.value.set(mouse.x, mouse.y);
+    materialRef.current.uniforms.uMouse.value.set(
+      mousePosition.x,
+      mousePosition.y,
+    );
     materialRef.current.uniforms.uBlogMode.value = blogMode ? 1 : 0;
     materialRef.current.uniforms.uCelebrate.value = contactCelebration ? 1 : 0;
   });

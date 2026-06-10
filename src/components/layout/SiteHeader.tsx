@@ -15,17 +15,17 @@ export function SiteHeader() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4 md:px-8">
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between rounded-2xl border border-white/25 bg-[rgba(249,249,246,0.2)] px-5 py-3 backdrop-blur-[32px] backdrop-saturate-[180%]"
+        className="mx-auto flex max-w-7xl items-center justify-between rounded-2xl border border-white/40 bg-[rgba(249,249,246,0.88)] px-5 py-3 shadow-[0_4px_24px_rgba(0,0,0,0.06)]"
         aria-label="Main"
       >
         <Link href="/" aria-label="The Alter Ego — Home" className="shrink-0">
           <Image
             src="/images/logo-horizontal.png"
             alt="The Alter Ego Creative Studio"
-            width={1024}
-            height={320}
+            width={927}
+            height={287}
             priority
-            className="h-9 w-auto md:h-10"
+            className="h-8 w-auto md:h-9"
           />
         </Link>
 

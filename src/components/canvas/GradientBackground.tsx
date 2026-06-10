@@ -11,7 +11,7 @@ const CanvasRoot = dynamic(
 export function GradientBackground() {
   return (
     <div
-      className="pointer-events-none fixed inset-0 -z-10"
+      className="pointer-events-none fixed inset-0 -z-10 isolate [transform:translateZ(0)]"
       aria-hidden
     >
       <Suspense fallback={<div className="h-full w-full bg-cream" />}>

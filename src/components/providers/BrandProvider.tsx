@@ -18,15 +18,5 @@ export function BrandProvider({ children }: { children: React.ReactNode }) {
     }
   }, [pathname, setBlogMode, setMetamorphosis]);
 
-  useEffect(() => {
-    const onMove = (e: MouseEvent) => {
-      useBrandStore
-        .getState()
-        .setMouse(e.clientX / window.innerWidth, e.clientY / window.innerHeight);
-    };
-    window.addEventListener("mousemove", onMove);
-    return () => window.removeEventListener("mousemove", onMove);
-  }, []);
-
   return <>{children}</>;
 }
