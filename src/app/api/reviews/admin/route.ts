@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import {
   approveReview,
   getPendingReviews,
+  isAdminConfigured,
   rejectReview,
   verifyAdminToken,
 } from "@/lib/reviews-store";
@@ -10,7 +11,15 @@ function unauthorized() {
   return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 }
 
+function adminNotConfigured() {
+  return NextResponse.json(
+    { error: "Admin is not configured. Set REVIEW_ADMIN_SECRET in Vercel." },
+    { status: 503 },
+  );
+}
+
 export async function GET(request: Request) {
+  if (!isAdminConfigured()) return adminNotConfigured();
   const token = request.headers.get("x-admin-token");
   if (!verifyAdminToken(token)) return unauthorized();
   const pending = await getPendingReviews();
@@ -18,6 +27,7 @@ export async function GET(request: Request) {
 }
 
 export async function PATCH(request: Request) {
+  if (!isAdminConfigured()) return adminNotConfigured();
   const token = request.headers.get("x-admin-token");
   if (!verifyAdminToken(token)) return unauthorized();
 

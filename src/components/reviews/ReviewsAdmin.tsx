@@ -20,16 +20,14 @@ export function ReviewsAdmin() {
     const saved = sessionStorage.getItem(TOKEN_KEY);
     if (saved) {
       setToken(saved);
-      setAuthed(true);
+      void verifyAndLoad(saved, { restoreSession: true });
     }
   }, []);
 
-  useEffect(() => {
-    if (!authed || !token) return;
-    loadPending(token);
-  }, [authed, token]);
-
-  async function loadPending(adminToken: string) {
+  async function verifyAndLoad(
+    adminToken: string,
+    { restoreSession = false }: { restoreSession?: boolean } = {},
+  ) {
     setLoading(true);
     setError(null);
     try {
@@ -39,13 +37,29 @@ export function ReviewsAdmin() {
       if (res.status === 401) {
         sessionStorage.removeItem(TOKEN_KEY);
         setAuthed(false);
-        setError("Invalid admin token.");
-        return;
+        setError(
+          restoreSession
+            ? "Session expired. Enter your admin token again."
+            : "Invalid admin token. Check that it matches REVIEW_ADMIN_SECRET in Vercel.",
+        );
+        return false;
+      }
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        setError(
+          typeof data.error === "string"
+            ? data.error
+            : "Could not load pending reviews.",
+        );
+        return false;
       }
       const data = await res.json();
       setPending(data.pending ?? []);
+      setAuthed(true);
+      return true;
     } catch {
-      setError("Could not load pending reviews.");
+      setError("Could not connect. Try again.");
+      return false;
     } finally {
       setLoading(false);
     }
@@ -67,10 +81,10 @@ export function ReviewsAdmin() {
     setPending((prev) => prev.filter((r) => r.id !== id));
   }
 
-  function onLogin(e: React.FormEvent) {
+  async function onLogin(e: React.FormEvent) {
     e.preventDefault();
-    sessionStorage.setItem(TOKEN_KEY, token);
-    setAuthed(true);
+    const ok = await verifyAndLoad(token);
+    if (ok) sessionStorage.setItem(TOKEN_KEY, token);
   }
 
   if (!authed) {
@@ -91,11 +105,16 @@ export function ReviewsAdmin() {
                 className="mt-2 w-full rounded-xl border border-ink/10 bg-white/60 px-4 py-3 font-body text-ink outline-none"
               />
             </label>
+            {error && (
+              <p className="font-body text-sm text-magenta">{error}</p>
+            )}
+
             <button
               type="submit"
-              className="w-full rounded-full bg-magenta py-3 font-body text-xs font-semibold uppercase tracking-widest text-white"
+              disabled={loading}
+              className="w-full rounded-full bg-magenta py-3 font-body text-xs font-semibold uppercase tracking-widest text-white disabled:opacity-60"
             >
-              Enter
+              {loading ? "Checking…" : "Enter"}
             </button>
           </form>
         </GlassContainer>

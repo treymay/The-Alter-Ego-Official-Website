@@ -139,6 +139,10 @@ export async function rejectReview(id: string) {
   return true;
 }
 
+export function isAdminConfigured() {
+  return Boolean(process.env.REVIEW_ADMIN_SECRET);
+}
+
 export function verifyAdminToken(token: string | null) {
   const secret = process.env.REVIEW_ADMIN_SECRET;
   if (!secret) return false;

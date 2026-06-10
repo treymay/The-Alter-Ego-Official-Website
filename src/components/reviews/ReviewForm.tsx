@@ -20,7 +20,8 @@ export function ReviewForm() {
       return;
     }
 
-    const form = new FormData(e.currentTarget);
+    const formEl = e.currentTarget;
+    const form = new FormData(formEl);
     const payload = {
       rating,
       businessName: form.get("businessName"),
@@ -38,7 +39,7 @@ export function ReviewForm() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? "Submission failed.");
       setSent(true);
-      e.currentTarget.reset();
+      formEl.reset();
       setRating(0);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Submission failed.");
