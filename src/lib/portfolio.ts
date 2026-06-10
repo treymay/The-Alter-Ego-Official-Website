@@ -148,9 +148,94 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: "LUX AETERNA",
     category: "ART DIRECTION",
     aspect: "portrait",
-    image:
-      "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=900&q=80",
-    tagline: "Campaign identity and visual narrative.",
+    image: "/work/lux-aeterna/01.jpg",
+    tagline:
+      "Pearl and chain jewelry shot boyish, relaxed, and candid—so anyone can see themselves wearing it.",
+    sections: [
+      {
+        heading: "The collection",
+        body: "Lux Aeterna is a set of handmade pearl-and-chain pieces—layered lariat necklaces with crystal and gold-bead stations, draped swag chains with charm drops, and matching bracelets in gold and silver. Delicate materials, fine wire work, and pendants that fall past the collarbone: jewelry that traditionally gets shot on velvet, under glass, untouchable.",
+      },
+      {
+        heading: "Boyish on purpose",
+        body: "The direction went the other way. Casting and wardrobe are deliberately boyish—mesh football jerseys, open button-downs, light-wash denim, zip hoodies, house slippers. Putting pearls on that canvas breaks the default that fine jewelry is formal or feminine. The contrast does the arguing: if it works over a practice jersey, it works on anyone.",
+      },
+      {
+        heading: "Relaxed and candid",
+        body: "Nothing is posed stiff. Models read books, lie across the bed, run a hand through their hair, cover a laugh. The bedroom-and-bare-wall settings keep it diaristic—like film photos of a friend who happens to be wearing the pieces. That candid energy makes the jewelry feel like everyday wear instead of occasion wear.",
+      },
+      {
+        heading: "Why it converts",
+        body: "The biggest silent objection in jewelry is \"that's not for me.\" This shoot removes it. Multiple models, multiple skin tones, zero glamour styling—the customer sees a person, not a mannequin. And the detail crops still do retail work: pearls, wire wrapping, and charm drops stay tack-sharp so craft quality reads up close.",
+      },
+    ],
+    gallery: [
+      {
+        src: "/work/lux-aeterna/01.jpg",
+        alt: "Portrait in an open button-down wearing the layered gold pearl lariat necklace",
+        aspect: "portrait",
+      },
+      {
+        src: "/work/lux-aeterna/02.jpg",
+        alt: "Gold and pearl bracelet on a wrist with a hand tucked into light-wash denim",
+        aspect: "portrait",
+      },
+      {
+        src: "/work/lux-aeterna/03.jpg",
+        alt: "Silver chain necklace with crystal stations worn over an open hoodie",
+        aspect: "portrait",
+      },
+      {
+        src: "/work/lux-aeterna/04.jpg",
+        alt: "Close-up of the gold pearl swag necklace over a cream button-down",
+        aspect: "portrait",
+      },
+      {
+        src: "/work/lux-aeterna/05.jpg",
+        alt: "Candid frame reading a book in denim shorts and slippers wearing the silver necklace",
+        aspect: "portrait",
+      },
+      {
+        src: "/work/lux-aeterna/06.jpg",
+        alt: "Pearl bracelet on a raised arm in a white mesh jersey",
+        aspect: "portrait",
+      },
+      {
+        src: "/work/lux-aeterna/07.jpg",
+        alt: "Portrait in a vintage mesh football jersey",
+        aspect: "portrait",
+      },
+      {
+        src: "/work/lux-aeterna/08.jpg",
+        alt: "Arms crossed showing the pearl bracelet and silver ring",
+        aspect: "portrait",
+      },
+      {
+        src: "/work/lux-aeterna/09.jpg",
+        alt: "Seated portrait in glasses wearing the layered silver necklace",
+        aspect: "portrait",
+      },
+      {
+        src: "/work/lux-aeterna/10.jpg",
+        alt: "Candid seated frame with the pearl bracelet, hand over mouth",
+        aspect: "portrait",
+      },
+      {
+        src: "/work/lux-aeterna/11.jpg",
+        alt: "Lying across the bed wearing the silver crystal necklace",
+        aspect: "portrait",
+      },
+      {
+        src: "/work/lux-aeterna/12.jpg",
+        alt: "Standing portrait with the silver lariat necklace and star charm drop",
+        aspect: "portrait",
+      },
+      {
+        src: "/work/lux-aeterna/13.jpg",
+        alt: "Reading on the bed beside a mirror wearing the layered necklace",
+        aspect: "portrait",
+      },
+    ],
   },
   {
     id: "trey-may",
