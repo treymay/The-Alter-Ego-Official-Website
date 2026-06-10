@@ -10,11 +10,11 @@ export function BrandProvider({ children }: { children: React.ReactNode }) {
   const setMetamorphosis = useBrandStore((s) => s.setMetamorphosis);
 
   useEffect(() => {
-    const isBlog = pathname.startsWith("/blog");
+    const isCalmPage = pathname.startsWith("/reviews");
     const isHome = pathname === "/";
-    setBlogMode(isBlog);
+    setBlogMode(isCalmPage);
     if (!isHome) {
-      setMetamorphosis(isBlog ? 0 : 0.72);
+      setMetamorphosis(isCalmPage ? 0 : 0.72);
     }
   }, [pathname, setBlogMode, setMetamorphosis]);
 

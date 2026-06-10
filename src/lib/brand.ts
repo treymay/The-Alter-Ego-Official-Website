@@ -22,7 +22,7 @@ export const BRAND = {
     { href: "/services", label: "Services" },
     { href: "/work", label: "Case Studies" },
     { href: "/about", label: "About" },
-    { href: "/blog", label: "Blog" },
+    { href: "/reviews", label: "Reviews" },
     { href: "/contact", label: "Contact" },
   ] as const,
 } as const;
