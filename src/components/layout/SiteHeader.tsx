@@ -22,10 +22,11 @@ export function SiteHeader() {
           <Image
             src="/images/logo-horizontal.png"
             alt="The Alter Ego Creative Studio"
-            width={929}
-            height={289}
+            width={1024}
+            height={1024}
             priority
-            className="h-8 w-auto md:h-9"
+            unoptimized
+            className="h-10 w-auto md:h-11"
           />
         </Link>
 
