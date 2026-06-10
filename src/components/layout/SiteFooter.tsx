@@ -9,12 +9,12 @@ export function SiteFooter() {
       <div className="mx-auto flex max-w-7xl flex-col gap-10 md:flex-row md:items-end md:justify-between">
         <div>
           <Image
-            src="/images/logo-horizontal.png"
+            src="/images/logo-icon.png"
             alt="The Alter Ego Creative Studio"
             width={1024}
             height={1024}
             unoptimized
-            className="h-12 w-auto md:h-14"
+            className="h-10 w-10 md:h-12 md:w-12"
           />
           <p className="mt-3 max-w-sm font-body text-sm text-ink/65">{WHO_WE_ARE}</p>
           <a

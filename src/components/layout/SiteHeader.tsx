@@ -20,13 +20,13 @@ export function SiteHeader() {
       >
         <Link href="/" aria-label="The Alter Ego — Home" className="shrink-0">
           <Image
-            src="/images/logo-horizontal.png"
+            src="/images/logo-icon.png"
             alt="The Alter Ego Creative Studio"
             width={1024}
             height={1024}
             priority
             unoptimized
-            className="h-10 w-auto md:h-11"
+            className="h-9 w-9 md:h-10 md:w-10"
           />
         </Link>
 
