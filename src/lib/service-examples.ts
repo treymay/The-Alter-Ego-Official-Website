@@ -5,62 +5,53 @@ export type ServiceExampleImage = {
   label?: string;
 };
 
-/**
- * Add your images to public/images/services/shopify/ and public/images/services/art-direction/
- * then update the src paths below (or keep Unsplash placeholders until ready).
- */
 export const SHOPIFY_EXAMPLE_IMAGES: ServiceExampleImage[] = [
   {
-    src: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=900&q=85",
-    alt: "Shopify storefront example",
-    label: "Storefront",
+    src: "/work/heart-of-steel.png",
+    alt: "Heart of Steel storefront hero",
+    label: "Heart of Steel",
   },
   {
-    src: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=900&q=85",
-    alt: "Editorial product layout",
-    label: "Product page",
+    src: "/work/kelela.png",
+    alt: "Kelela New Avatar album launch storefront",
+    label: "Kelela",
   },
   {
-    src: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900&q=85",
-    alt: "Mobile commerce",
-    label: "Mobile",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=900&q=85",
-    alt: "Lookbook section",
-    label: "Lookbook",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1556740758-90de374c12aba?w=900&q=85",
-    alt: "Cart and checkout",
-    label: "Commerce",
+    src: "/work/federico-cina.png",
+    alt: "Federico Cina runway video homepage",
+    label: "Federico Cina",
   },
 ];
 
 export const ART_DIRECTION_EXAMPLE_IMAGES: ServiceExampleImage[] = [
   {
-    src: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=900&q=85",
-    alt: "Campaign still",
-    label: "Campaign",
+    src: "/work/the-geminis/01.jpg",
+    alt: "SHYNE magazine cover with Cebrea over a miniature city",
+    label: "The Geminis",
   },
   {
-    src: "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=900&q=85",
-    alt: "Editorial photography",
-    label: "Editorial",
+    src: "/work/trey-may/02-brooch-portrait.jpg",
+    alt: "Blood & Tears brooch worn on a white blazer",
+    label: "Trey May Jewelry",
   },
   {
-    src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=85",
-    alt: "Set photography",
-    label: "On set",
+    src: "/work/lux-aeterna/01.jpg",
+    alt: "Layered gold pearl necklace over an open button-down",
+    label: "Lux Aeterna",
   },
   {
-    src: "https://images.unsplash.com/photo-1483985988351-763728e1935b?w=900&q=85",
-    alt: "Fashion direction",
-    label: "Fashion",
+    src: "/work/the-geminis/04.jpg",
+    alt: "The Geminis laughing in matching fringe dresses",
+    label: "The Geminis",
   },
   {
-    src: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=900&q=85",
-    alt: "Campaign drop",
-    label: "Drop",
+    src: "/work/trey-may/05-ear-cuff-profile.jpg",
+    alt: "Gold winged ear cuff close-up",
+    label: "Trey May Jewelry",
+  },
+  {
+    src: "/work/lux-aeterna/06.jpg",
+    alt: "Pearl bracelet on a raised arm in a mesh jersey",
+    label: "Lux Aeterna",
   },
 ];

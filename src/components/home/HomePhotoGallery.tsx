@@ -5,23 +5,22 @@ import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { GlassContainer } from "@/components/ui/GlassContainer";
 
-/** Replace src paths with your campaign / lookbook / storefront stills */
 const FEATURED = {
   hero: {
     label: "Lookbook · Campaign",
-    src: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1400&q=85",
-    alt: "Editorial campaign frame",
+    src: "/work/trey-may/03-brooch-fronds.jpg",
+    alt: "Blood & Tears brooch campaign shot through palm fronds in West Palm Beach",
   },
   secondary: [
     {
       label: "Shopify flagship",
-      src: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=700&q=85",
-      alt: "Storefront capture",
+      src: "/work/kelela.png",
+      alt: "Kelela New Avatar album launch storefront",
     },
     {
       label: "Art direction",
-      src: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=700&q=85",
-      alt: "Art direction still",
+      src: "/work/the-geminis/02.jpg",
+      alt: "SHYNE magazine cover with The Geminis",
     },
   ],
 } as const;

@@ -75,7 +75,11 @@ function ShopifyScrollPanel() {
       exit={{ opacity: 0 }}
       className="space-y-10"
     >
-      <ServiceExampleCarousel images={SHOPIFY_EXAMPLE_IMAGES} accent="orange" />
+      <ServiceExampleCarousel
+        images={SHOPIFY_EXAMPLE_IMAGES}
+        accent="orange"
+        shape="wide"
+      />
 
       <GlassContainer className="overflow-hidden p-0">
         <div className="h-2 bg-gradient-to-r from-brand-orange via-brand-yellow to-brand-pink" />

@@ -8,9 +8,15 @@ import { cn } from "@/lib/utils";
 type Props = {
   images: ServiceExampleImage[];
   accent?: "orange" | "pink";
+  /** "wide" suits storefront screenshots; "portrait" suits campaign stills */
+  shape?: "portrait" | "wide";
 };
 
-export function ServiceExampleCarousel({ images, accent = "orange" }: Props) {
+export function ServiceExampleCarousel({
+  images,
+  accent = "orange",
+  shape = "portrait",
+}: Props) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   function scrollBy(direction: -1 | 1) {
@@ -49,11 +55,17 @@ export function ServiceExampleCarousel({ images, accent = "orange" }: Props) {
           <figure
             key={img.src}
             className={cn(
-              "relative w-[min(78vw,300px)] shrink-0 snap-center overflow-hidden rounded-2xl ring-1",
+              "relative shrink-0 snap-center overflow-hidden rounded-2xl ring-1",
+              shape === "wide" ? "w-[min(88vw,520px)]" : "w-[min(78vw,300px)]",
               ring,
             )}
           >
-            <div className="relative aspect-[4/5] w-full">
+            <div
+              className={cn(
+                "relative w-full",
+                shape === "wide" ? "aspect-[16/9]" : "aspect-[4/5]",
+              )}
+            >
               <Image
                 src={img.src}
                 alt={img.alt}
