@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { CASE_STUDIES, type CaseStudy } from "@/lib/portfolio";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageHero } from "@/components/layout/PageHero";
@@ -8,42 +9,47 @@ import { cn } from "@/lib/utils";
 
 function CaseStudyCard({ item }: { item: CaseStudy }) {
   const isShopify = item.category === "SHOPIFY";
+  const hasStudy = !!item.sections?.length;
 
   return (
-    <article className="group overflow-hidden rounded-2xl border border-ink/10 bg-white">
-      <div className="relative aspect-[16/10] w-full overflow-hidden">
-        <Image
-          src={item.image}
-          alt={item.title}
-          fill
-          className="object-cover transition duration-500 group-hover:scale-[1.02] group-hover:saturate-110"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
-      </div>
-      <div className="flex items-start justify-between gap-4 border-t border-ink/8 px-5 py-5 md:px-6 md:py-6">
-        <div>
-          <p
+    <Link href={`/work/${item.id}`} className="block h-full">
+      <article className="group h-full overflow-hidden rounded-2xl border border-ink/10 bg-white transition hover:border-magenta/40 hover:shadow-[0_12px_40px_rgba(0,0,0,0.1)]">
+        <div className="relative aspect-[16/10] w-full overflow-hidden">
+          <Image
+            src={item.image}
+            alt={item.title}
+            fill
+            className="object-cover transition duration-500 group-hover:scale-[1.02] group-hover:saturate-110"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </div>
+        <div className="flex items-start justify-between gap-4 border-t border-ink/8 px-5 py-5 md:px-6 md:py-6">
+          <div>
+            <p
+              className={cn(
+                "font-body text-[0.65rem] font-bold uppercase tracking-[0.25em]",
+                isShopify ? "text-brand-orange" : "text-brand-pink",
+              )}
+            >
+              {isShopify ? "Shopify" : "Art direction"}
+            </p>
+            <h3 className="font-heading mt-2 text-lg text-ink md:text-xl">
+              {item.title}
+            </h3>
+          </div>
+          <span
             className={cn(
-              "font-body text-[0.65rem] font-bold uppercase tracking-[0.25em]",
-              isShopify ? "text-brand-orange" : "text-brand-pink",
+              "shrink-0 font-body text-[0.65rem] font-semibold uppercase tracking-widest",
+              hasStudy
+                ? "text-magenta transition group-hover:translate-x-1"
+                : "text-ink/35",
             )}
           >
-            {isShopify ? "Shopify" : "Art direction"}
-          </p>
-          <h3 className="font-heading mt-2 text-lg text-ink md:text-xl">{item.title}</h3>
+            {hasStudy ? "View case study →" : "Soon"}
+          </span>
         </div>
-        <span className="shrink-0 font-body text-[0.65rem] font-semibold uppercase tracking-widest text-ink/35">
-          Soon
-        </span>
-      </div>
-      {isShopify && (
-        <div className="border-t border-ink/8 px-5 py-3 md:px-6">
-          <p className="font-body text-xs font-semibold uppercase tracking-widest text-brand-green">
-            View the website →
-          </p>
-        </div>
-      )}
-    </article>
+      </article>
+    </Link>
   );
 }
 
