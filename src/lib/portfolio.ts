@@ -323,9 +323,54 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: "THE GEMINIS",
     category: "ART DIRECTION",
     aspect: "wide",
-    image:
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1400&q=80",
-    tagline: "Duo identity, photography, and rollout.",
+    image: "/work/the-geminis/02.jpg",
+    imageSize: { width: 819, height: 1024 },
+    tagline:
+      "SHYNE magazine covers for a pop duo—DDR, East Asian pop, Euphoria, and Y2K in one visual world.",
+    sections: [
+      {
+        heading: "The project",
+        body: "A cover series for SHYNE magazine starring The Geminis, a pop duo, plus solo covers for each member. Full art direction end to end: concept, styling, makeup direction, photography, compositing, and the cover graphics themselves—custom logotype, vertical Japanese callouts, and the colorway system that ties the set together.",
+      },
+      {
+        heading: "The inspiration mash",
+        body: "Four references run through every frame. Dance Dance Revolution brings the arcade energy—candy colors, platform shoes, poses caught mid-move. East Asian pop styles the covers like J-pop and K-pop idol magazines, down to the vertical Japanese cover lines. Euphoria drives the makeup: graphic neon eye bars and face gems. And Y2K supplies the finish—liquid chrome type, glossy 3D hearts, bubble insets, and miniature city sets the talent towers over.",
+      },
+      {
+        heading: "A system, not just covers",
+        body: "Each cover is its own colorway—hot pink, baby pink, powder blue, and teal-and-gold—but the grid never changes: SHYNE logotype up top, issue date right, vertical name rail, Japanese callout on the spine side. That's what makes four wildly different images read instantly as one collectible series.",
+      },
+      {
+        heading: "Why it works",
+        body: "Magazine framing turns artists into icons—a cover implies the world already decided they matter. The repeated system builds brand recognition by the second image, and the colorway-per-cover approach gives every fan a favorite to share. It's the same logic as variant vinyl: one drop, multiple covetable versions.",
+      },
+    ],
+    gallery: [
+      {
+        src: "/work/the-geminis/01.jpg",
+        alt: "SHYNE cover — Cebrea in a hot pink fringe dress crouching over a miniature city",
+        width: 819,
+        height: 1024,
+      },
+      {
+        src: "/work/the-geminis/02.jpg",
+        alt: "SHYNE cover — The Geminis back to back in metallic lilac and pink sequin checkerboard",
+        width: 819,
+        height: 1024,
+      },
+      {
+        src: "/work/the-geminis/03.jpg",
+        alt: "SHYNE cover — Aaliyah in a lavender fringe dress lounging in a miniature city set",
+        width: 819,
+        height: 1024,
+      },
+      {
+        src: "/work/the-geminis/04.jpg",
+        alt: "SHYNE cover — The Geminis laughing in matching lavender and pink fringe dresses",
+        width: 819,
+        height: 1024,
+      },
+    ],
   },
 ];
 
