@@ -86,10 +86,6 @@ void main() {
 
 export function MeshGradientShader() {
   const materialRef = useRef<THREE.ShaderMaterial>(null);
-  const metamorphosis = useBrandStore((s) => s.metamorphosis);
-  const blogMode = useBrandStore((s) => s.blogMode);
-  const contactCelebration = useBrandStore((s) => s.contactCelebration);
-  const mouse = useBrandStore((s) => s.mouse);
 
   const uniforms = useMemo(
     () => ({
@@ -104,6 +100,8 @@ export function MeshGradientShader() {
 
   useFrame((state) => {
     if (!materialRef.current) return;
+    const { metamorphosis, mouse, blogMode, contactCelebration } =
+      useBrandStore.getState();
     materialRef.current.uniforms.uTime.value = state.clock.elapsedTime;
     materialRef.current.uniforms.uMetamorphosis.value = metamorphosis;
     materialRef.current.uniforms.uMouse.value.set(mouse.x, mouse.y);

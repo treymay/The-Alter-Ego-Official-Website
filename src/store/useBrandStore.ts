@@ -15,7 +15,7 @@ type BrandState = {
   setMouse: (x: number, y: number) => void;
 };
 
-export const useBrandStore = create<BrandState>((set) => ({
+export const useBrandStore = create<BrandState>((set, get) => ({
   metamorphosis: 0,
   blogMode: false,
   contactCelebration: false,
@@ -25,5 +25,9 @@ export const useBrandStore = create<BrandState>((set) => ({
   setBlogMode: (blogMode) => set({ blogMode }),
   setContactCelebration: (contactCelebration) => set({ contactCelebration }),
   setServiceEnergy: (serviceEnergy) => set({ serviceEnergy }),
-  setMouse: (x, y) => set({ mouse: { x, y } }),
+  setMouse: (x, y) => {
+    const mouse = get().mouse;
+    mouse.x = x;
+    mouse.y = y;
+  },
 }));
