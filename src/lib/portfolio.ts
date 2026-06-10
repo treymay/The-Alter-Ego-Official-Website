@@ -29,8 +29,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: "HEART OF STEEL",
     category: "SHOPIFY",
     aspect: "portrait",
-    image:
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=900&q=80",
+    image: "/work/heart-of-steel.png",
     tagline: "Alternative jewelry and streetwear from the underground.",
     websiteUrl: "https://trey-may-jewelry-and-streetwear.myshopify.com",
     websitePassword: "trey",
@@ -58,8 +57,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: "KELELA",
     category: "SHOPIFY",
     aspect: "wide",
-    image:
-      "https://images.unsplash.com/photo-1483985988351-763728e1935b?w=1400&q=80",
+    image: "/work/kelela.png",
     tagline: "Album launch hub for the New Avatar world tour.",
     websiteUrl: "https://kelela-b4zs178g.myshopify.com/",
     websitePassword: "kelela",
@@ -96,8 +94,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: "FEDERICO CINA",
     category: "SHOPIFY",
     aspect: "portrait",
-    image:
-      "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=900&q=80",
+    image: "/work/federico-cina.png",
     tagline: "Italian craft and seasonal storytelling, runway to checkout.",
     websiteUrl: "https://federico-cina-oth6xhds.myshopify.com/",
     websitePassword: "cina",
