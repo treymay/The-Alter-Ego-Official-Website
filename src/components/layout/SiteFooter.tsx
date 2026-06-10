@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { BRAND } from "@/lib/brand";
 import { CONTACT_EMAIL, WHO_WE_ARE } from "@/lib/copy";
@@ -7,7 +8,13 @@ export function SiteFooter() {
     <footer className="relative z-10 mt-24 border-t border-ink/10 px-4 py-16 md:px-8">
       <div className="mx-auto flex max-w-7xl flex-col gap-10 md:flex-row md:items-end md:justify-between">
         <div>
-          <p className="font-display text-lg text-ink md:text-xl">THE ALTER EGO</p>
+          <Image
+            src="/images/logo-horizontal.png"
+            alt="The Alter Ego Creative Studio"
+            width={1024}
+            height={320}
+            className="h-12 w-auto md:h-14"
+          />
           <p className="mt-3 max-w-sm font-body text-sm text-ink/65">{WHO_WE_ARE}</p>
           <a
             href={`mailto:${CONTACT_EMAIL}`}

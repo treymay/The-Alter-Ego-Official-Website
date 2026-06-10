@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -17,11 +18,15 @@ export function SiteHeader() {
         className="mx-auto flex max-w-7xl items-center justify-between rounded-2xl border border-white/25 bg-[rgba(249,249,246,0.2)] px-5 py-3 backdrop-blur-[32px] backdrop-saturate-[180%]"
         aria-label="Main"
       >
-        <Link
-          href="/"
-          className="font-display text-[0.65rem] tracking-tight text-ink md:text-xs"
-        >
-          THE ALTER EGO
+        <Link href="/" aria-label="The Alter Ego — Home" className="shrink-0">
+          <Image
+            src="/images/logo-horizontal.png"
+            alt="The Alter Ego Creative Studio"
+            width={1024}
+            height={320}
+            priority
+            className="h-9 w-auto md:h-10"
+          />
         </Link>
 
         <ul className="hidden items-center gap-8 md:flex">
