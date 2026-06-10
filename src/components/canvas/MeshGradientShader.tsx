@@ -46,29 +46,38 @@ void main() {
     return;
   }
 
-  vec2 orangeC = vec2(0.22 + sin(t) * 0.1, 0.38 + cos(t * 0.8) * 0.08);
-  vec2 pinkC = vec2(0.78 + cos(t * 0.7) * 0.1, 0.28 + sin(t * 0.9) * 0.1);
-  vec2 greenC = vec2(0.48 + sin(t * 1.05) * 0.12, 0.68 + cos(t * 0.55) * 0.1);
-  vec2 yellowC = vec2(0.58 + cos(t * 0.95) * 0.09, 0.48 + sin(t * 0.75) * 0.08);
+  // Yellow lives near the green side; pink stays on the opposite side so the
+  // two never overlap into muddy orange.
+  vec2 greenC = vec2(0.22 + sin(t) * 0.08, 0.38 + cos(t * 0.8) * 0.07);
+  vec2 pinkC = vec2(0.82 + cos(t * 0.7) * 0.08, 0.3 + sin(t * 0.9) * 0.08);
+  vec2 green2C = vec2(0.42 + sin(t * 1.05) * 0.08, 0.78 + cos(t * 0.55) * 0.07);
+  vec2 pink2C = vec2(0.84 + cos(t * 0.85) * 0.07, 0.76 + sin(t * 0.65) * 0.07);
+  vec2 yellowC = vec2(0.18 + cos(t * 0.95) * 0.07, 0.8 + sin(t * 0.75) * 0.06);
   vec2 mouseC = vec2(uMouse.x, 1.0 - uMouse.y);
 
-  float oBlob = blob(uv, orangeC, 0.5 * m + 0.06);
-  float pBlob = blob(uv, pinkC, 0.48 * m + 0.06);
-  float gBlob = blob(uv, greenC, 0.46 * m + 0.06);
-  float yBlob = blob(uv, yellowC, 0.4 * m + 0.05);
-  float mBlob = blob(uv, mouseC, 0.32 * m + 0.04);
+  float gBlob = blob(uv, greenC, 0.42 * m + 0.05);
+  float pBlob = blob(uv, pinkC, 0.42 * m + 0.05);
+  float g2Blob = blob(uv, green2C, 0.34 * m + 0.04);
+  float p2Blob = blob(uv, pink2C, 0.34 * m + 0.04);
+  float yBlob = blob(uv, yellowC, 0.36 * m + 0.04);
+  float mBlob = blob(uv, mouseC, 0.26 * m + 0.04);
 
-  vec3 vivid = brandOrange * oBlob * 1.35;
-  vivid += brandPink * pBlob * 1.3;
-  vivid += brandGreen * gBlob * 1.25;
-  vivid += brandYellow * yBlob * 0.9;
-  vivid += brandMagenta * mBlob * 0.45;
+  // Blend blobs over a white base so uncovered areas stay bright, never black.
+  // Yellow goes first at low strength so green and pink read on top of it.
+  vec3 vivid = cream;
+  vivid = mix(vivid, brandYellow, yBlob * 0.45);
+  vivid = mix(vivid, brandGreen, gBlob * 0.85);
+  vivid = mix(vivid, brandGreen, g2Blob * 0.6);
+  vivid = mix(vivid, brandPink, pBlob * 0.85);
+  vivid = mix(vivid, brandPink, p2Blob * 0.55);
+  vivid = mix(vivid, brandMagenta, mBlob * 0.3);
 
   vec3 sterile = mix(cream, beige, uv.x * 0.4 + uv.y * 0.3);
   vec3 color = mix(sterile, vivid, m);
 
   if (uCelebrate > 0.5) {
-    color = mix(color, vivid * 1.35 + brandYellow * 0.25, 0.88);
+    vec3 celebration = mix(vivid, brandYellow, 0.2);
+    color = mix(color, celebration, 0.88);
   }
 
   gl_FragColor = vec4(color, 1.0);
