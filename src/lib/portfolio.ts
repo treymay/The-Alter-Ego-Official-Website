@@ -10,7 +10,8 @@ export type CaseStudySection = {
 export type CaseStudyGalleryImage = {
   src: string;
   alt: string;
-  aspect: "portrait" | "landscape";
+  width: number;
+  height: number;
 };
 
 export type CaseStudy = {
@@ -19,6 +20,8 @@ export type CaseStudy = {
   category: CaseStudyCategory;
   aspect: CaseStudyAspect;
   image: string;
+  /** Natural dimensions of `image`; when set, the case study hero renders uncropped */
+  imageSize?: { width: number; height: number };
   /** One-line positioning shown on the card and case study hero */
   tagline?: string;
   /** Live site (password-protected dev stores supported) */
@@ -38,6 +41,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     category: "SHOPIFY",
     aspect: "portrait",
     image: "/work/heart-of-steel.png",
+    imageSize: { width: 1024, height: 581 },
     tagline: "Alternative jewelry and streetwear from the underground.",
     websiteUrl: "https://trey-may-jewelry-and-streetwear.myshopify.com",
     websitePassword: "trey",
@@ -66,6 +70,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     category: "SHOPIFY",
     aspect: "wide",
     image: "/work/kelela.png",
+    imageSize: { width: 1024, height: 525 },
     tagline: "Album launch hub for the New Avatar world tour.",
     websiteUrl: "https://kelela-b4zs178g.myshopify.com/",
     websitePassword: "kelela",
@@ -103,6 +108,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     category: "SHOPIFY",
     aspect: "portrait",
     image: "/work/federico-cina.png",
+    imageSize: { width: 1024, height: 615 },
     tagline: "Italian craft and seasonal storytelling, runway to checkout.",
     websiteUrl: "https://federico-cina-oth6xhds.myshopify.com/",
     websitePassword: "cina",
@@ -149,6 +155,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     category: "ART DIRECTION",
     aspect: "portrait",
     image: "/work/lux-aeterna/01.jpg",
+    imageSize: { width: 819, height: 1024 },
     tagline:
       "Pearl and chain jewelry shot boyish, relaxed, and candid—so anyone can see themselves wearing it.",
     sections: [
@@ -173,67 +180,80 @@ export const CASE_STUDIES: CaseStudy[] = [
       {
         src: "/work/lux-aeterna/01.jpg",
         alt: "Portrait in an open button-down wearing the layered gold pearl lariat necklace",
-        aspect: "portrait",
+        width: 819,
+        height: 1024,
       },
       {
         src: "/work/lux-aeterna/02.jpg",
         alt: "Gold and pearl bracelet on a wrist with a hand tucked into light-wash denim",
-        aspect: "portrait",
+        width: 682,
+        height: 1024,
       },
       {
         src: "/work/lux-aeterna/03.jpg",
         alt: "Silver chain necklace with crystal stations worn over an open hoodie",
-        aspect: "portrait",
+        width: 682,
+        height: 1024,
       },
       {
         src: "/work/lux-aeterna/04.jpg",
         alt: "Close-up of the gold pearl swag necklace over a cream button-down",
-        aspect: "portrait",
+        width: 819,
+        height: 1024,
       },
       {
         src: "/work/lux-aeterna/05.jpg",
         alt: "Candid frame reading a book in denim shorts and slippers wearing the silver necklace",
-        aspect: "portrait",
+        width: 682,
+        height: 1024,
       },
       {
         src: "/work/lux-aeterna/06.jpg",
         alt: "Pearl bracelet on a raised arm in a white mesh jersey",
-        aspect: "portrait",
+        width: 819,
+        height: 1024,
       },
       {
         src: "/work/lux-aeterna/07.jpg",
         alt: "Portrait in a vintage mesh football jersey",
-        aspect: "portrait",
+        width: 683,
+        height: 1024,
       },
       {
         src: "/work/lux-aeterna/08.jpg",
         alt: "Arms crossed showing the pearl bracelet and silver ring",
-        aspect: "portrait",
+        width: 819,
+        height: 1024,
       },
       {
         src: "/work/lux-aeterna/09.jpg",
         alt: "Seated portrait in glasses wearing the layered silver necklace",
-        aspect: "portrait",
+        width: 682,
+        height: 1024,
       },
       {
         src: "/work/lux-aeterna/10.jpg",
         alt: "Candid seated frame with the pearl bracelet, hand over mouth",
-        aspect: "portrait",
+        width: 819,
+        height: 1024,
       },
       {
         src: "/work/lux-aeterna/11.jpg",
         alt: "Lying across the bed wearing the silver crystal necklace",
-        aspect: "portrait",
+        width: 682,
+        height: 1024,
       },
       {
         src: "/work/lux-aeterna/12.jpg",
         alt: "Standing portrait with the silver lariat necklace and star charm drop",
-        aspect: "portrait",
+        width: 682,
+        height: 1024,
       },
       {
         src: "/work/lux-aeterna/13.jpg",
         alt: "Reading on the bed beside a mirror wearing the layered necklace",
-        aspect: "portrait",
+        width: 819,
+        height: 1024,
       },
     ],
   },
@@ -243,6 +263,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     category: "ART DIRECTION",
     aspect: "landscape",
     image: "/work/trey-may/03-brooch-fronds.jpg",
+    imageSize: { width: 1024, height: 682 },
     tagline:
       "Blood & Tears — narrative jewelry, designed and fabricated by Trey, shot like a campaign.",
     websiteUrl: "https://www.treymayofficial.com/works/blood-and-tears",
@@ -268,27 +289,32 @@ export const CASE_STUDIES: CaseStudy[] = [
       {
         src: "/work/trey-may/02-brooch-portrait.jpg",
         alt: "Blood & Tears brooch worn on a white blazer in front of historic West Palm Beach architecture",
-        aspect: "portrait",
+        width: 682,
+        height: 1024,
       },
       {
         src: "/work/trey-may/01-ear-cuff-palms.jpg",
         alt: "Gold ear cuff and hair claw with palm trees and white architecture",
-        aspect: "portrait",
+        width: 682,
+        height: 1024,
       },
       {
         src: "/work/trey-may/03-brooch-fronds.jpg",
         alt: "Close-up of the Blood & Tears brooch through palm fronds",
-        aspect: "landscape",
+        width: 1024,
+        height: 682,
       },
       {
         src: "/work/trey-may/04-yellow-window.jpg",
         alt: "Portrait with the brooch beside a yellow window",
-        aspect: "portrait",
+        width: 682,
+        height: 1024,
       },
       {
         src: "/work/trey-may/05-ear-cuff-profile.jpg",
         alt: "Profile close-up of the gold winged ear cuff with pearl drop",
-        aspect: "portrait",
+        width: 682,
+        height: 1024,
       },
     ],
   },

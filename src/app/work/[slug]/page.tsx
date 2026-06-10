@@ -56,16 +56,36 @@ export default async function CaseStudyPage({ params }: Props) {
         )}
       </header>
 
-      <div className="relative mt-12 aspect-[21/9] w-full overflow-hidden rounded-2xl border border-ink/10">
-        <Image
-          src={study.image}
-          alt={study.title}
-          fill
-          className="object-cover"
-          sizes="(max-width: 1280px) 100vw, 1200px"
-          priority
-        />
-      </div>
+      {study.imageSize ? (
+        <div
+          className={cn(
+            "mt-12 overflow-hidden rounded-2xl border border-ink/10",
+            study.imageSize.height > study.imageSize.width &&
+              "mx-auto max-w-xl",
+          )}
+        >
+          <Image
+            src={study.image}
+            alt={study.title}
+            width={study.imageSize.width}
+            height={study.imageSize.height}
+            className="h-auto w-full"
+            sizes="(max-width: 1280px) 100vw, 1200px"
+            priority
+          />
+        </div>
+      ) : (
+        <div className="relative mt-12 aspect-[21/9] w-full overflow-hidden rounded-2xl border border-ink/10">
+          <Image
+            src={study.image}
+            alt={study.title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 1280px) 100vw, 1200px"
+            priority
+          />
+        </div>
+      )}
 
       {study.websiteUrl && (
         <GlassContainer className="mt-10 flex flex-col gap-6 p-6 md:flex-row md:items-center md:justify-between md:p-8">
@@ -106,22 +126,18 @@ export default async function CaseStudyPage({ params }: Props) {
           <p className="font-body text-xs font-semibold uppercase tracking-[0.3em] text-magenta">
             The shoot
           </p>
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
+          <div className="mt-8 columns-1 gap-6 md:columns-2">
             {study.gallery.map((img) => (
               <div
                 key={img.src}
-                className={cn(
-                  "relative overflow-hidden rounded-2xl border border-ink/10",
-                  img.aspect === "landscape"
-                    ? "aspect-[3/2] md:col-span-2"
-                    : "aspect-[2/3]",
-                )}
+                className="mb-6 break-inside-avoid overflow-hidden rounded-2xl border border-ink/10"
               >
                 <Image
                   src={img.src}
                   alt={img.alt}
-                  fill
-                  className="object-cover"
+                  width={img.width}
+                  height={img.height}
+                  className="h-auto w-full"
                   sizes="(max-width: 768px) 100vw, 600px"
                 />
               </div>
