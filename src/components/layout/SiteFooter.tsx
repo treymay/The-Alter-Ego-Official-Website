@@ -11,8 +11,8 @@ export function SiteFooter() {
           <Image
             src="/images/logo-horizontal.png"
             alt="The Alter Ego Creative Studio"
-            width={927}
-            height={287}
+            width={929}
+            height={289}
             className="h-10 w-auto md:h-12"
           />
           <p className="mt-3 max-w-sm font-body text-sm text-ink/65">{WHO_WE_ARE}</p>

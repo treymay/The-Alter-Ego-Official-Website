@@ -22,8 +22,8 @@ export function SiteHeader() {
           <Image
             src="/images/logo-horizontal.png"
             alt="The Alter Ego Creative Studio"
-            width={927}
-            height={287}
+            width={929}
+            height={289}
             priority
             className="h-8 w-auto md:h-9"
           />
