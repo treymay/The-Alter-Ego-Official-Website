@@ -7,6 +7,12 @@ export type CaseStudySection = {
   body: string;
 };
 
+export type CaseStudyGalleryImage = {
+  src: string;
+  alt: string;
+  aspect: "portrait" | "landscape";
+};
+
 export type CaseStudy = {
   id: string;
   title: string;
@@ -21,6 +27,8 @@ export type CaseStudy = {
   websitePassword?: string;
   /** Art-direction-for-conversion breakdown */
   sections?: CaseStudySection[];
+  /** Campaign / lookbook photography */
+  gallery?: CaseStudyGalleryImage[];
 };
 
 export const CASE_STUDIES: CaseStudy[] = [
@@ -146,12 +154,58 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     id: "trey-may",
-    title: "TREY MAY",
+    title: "TREY MAY - JEWELRY",
     category: "ART DIRECTION",
     aspect: "landscape",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1000&q=80",
-    tagline: "Personal brand direction and asset production.",
+    image: "/work/trey-may/03-brooch-fronds.jpg",
+    tagline:
+      "Blood & Tears — narrative jewelry, designed and fabricated by Trey, shot like a campaign.",
+    websiteUrl: "https://www.treymayofficial.com/works/blood-and-tears",
+    sections: [
+      {
+        heading: "The piece: Blood & Tears",
+        body: "An eye that weeps what words can't hold. Designed and fabricated by Trey as his final for Introduction to Jewelry at SCAD, the brooch is an eye that cries blood—a monument to the specific agony of watching someone you loved move on. Brass and copper sheet metal, custom wire-fabricated eyelashes, pearls and ruby-red gemstone beads for the tears, a UV-resin-sealed iris, and a hand-soldered hinge and catch so it wears like a proper brooch.",
+      },
+      {
+        heading: "West Palm Beach was the mood",
+        body: "The direction for the shoot came from a vacation. West Palm Beach made Trey feel classy—like he could live there one day—and that feeling became the entire visual world: white historic architecture, wrought-iron fences, palm fronds, warm film grain. The campaign isn't set-dressed luxury; it's a real place that made the work feel at home.",
+      },
+      {
+        heading: "Styling so the jewelry wins",
+        body: "Cream blazer, white mesh, soft neutrals—the wardrobe stays in the same family as the buildings, so the only saturated thing in any frame is the blood-red bead tears of the brooch. The gold winged ear cuff and pearl drop get the same treatment: close crops, profile angles, hair pulled back. Every styling decision routes the eye to the metal.",
+      },
+      {
+        heading: "Campaign logic",
+        body: "Wide frames sell the lifestyle, close frames sell the craft. The set alternates between environmental portraits (the world you're buying into) and detail shots where the piercing work, patination, and beadwork are sharp enough to inspect. It's the same desire-then-detail rhythm we build into Shopify flagships—just executed on film.",
+      },
+    ],
+    gallery: [
+      {
+        src: "/work/trey-may/02-brooch-portrait.jpg",
+        alt: "Blood & Tears brooch worn on a white blazer in front of historic West Palm Beach architecture",
+        aspect: "portrait",
+      },
+      {
+        src: "/work/trey-may/01-ear-cuff-palms.jpg",
+        alt: "Gold ear cuff and hair claw with palm trees and white architecture",
+        aspect: "portrait",
+      },
+      {
+        src: "/work/trey-may/03-brooch-fronds.jpg",
+        alt: "Close-up of the Blood & Tears brooch through palm fronds",
+        aspect: "landscape",
+      },
+      {
+        src: "/work/trey-may/04-yellow-window.jpg",
+        alt: "Portrait with the brooch beside a yellow window",
+        aspect: "portrait",
+      },
+      {
+        src: "/work/trey-may/05-ear-cuff-profile.jpg",
+        alt: "Profile close-up of the gold winged ear cuff with pearl drop",
+        aspect: "portrait",
+      },
+    ],
   },
   {
     id: "the-geminis",

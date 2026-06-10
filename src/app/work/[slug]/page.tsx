@@ -101,6 +101,35 @@ export default async function CaseStudyPage({ params }: Props) {
         </GlassContainer>
       )}
 
+      {study.gallery && study.gallery.length > 0 && (
+        <section className="mt-16">
+          <p className="font-body text-xs font-semibold uppercase tracking-[0.3em] text-magenta">
+            The shoot
+          </p>
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            {study.gallery.map((img) => (
+              <div
+                key={img.src}
+                className={cn(
+                  "relative overflow-hidden rounded-2xl border border-ink/10",
+                  img.aspect === "landscape"
+                    ? "aspect-[3/2] md:col-span-2"
+                    : "aspect-[2/3]",
+                )}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 600px"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       {hasBreakdown ? (
         <section className="mt-16">
           <p className="font-body text-xs font-semibold uppercase tracking-[0.3em] text-magenta">
