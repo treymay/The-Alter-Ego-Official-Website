@@ -30,7 +30,7 @@ export function ValueGrid() {
         <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
           {BRAND.values.map((value, i) => (
             <motion.div
-              key={value}
+              key={value.name}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
@@ -47,9 +47,9 @@ export function ValueGrid() {
                   className={cn("mb-4 block h-1 w-10 rounded-full", accentBars[i])}
                   aria-hidden
                 />
-                <p className="font-display text-xl text-ink">{value}</p>
+                <p className="font-display text-xl text-ink">{value.name}</p>
                 <p className="font-body mt-3 max-w-[16rem] text-sm leading-relaxed text-ink/60">
-                  Curated presence for brands moving past generic ecommerce.
+                  {value.description}
                 </p>
               </GlassContainer>
             </motion.div>

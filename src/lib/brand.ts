@@ -10,12 +10,36 @@ export const BRAND = {
     ink: "#1A1A18",
   },
   values: [
-    "Creativity",
-    "Innovation",
-    "Identity",
-    "Originality",
-    "Collaboration",
-    "Balance",
+    {
+      name: "Creativity",
+      description:
+        "Imagination shaped with intent—every visual choice in service of the story.",
+    },
+    {
+      name: "Innovation",
+      description:
+        "New craft when the brief demands it, never novelty for its own sake.",
+    },
+    {
+      name: "Identity",
+      description:
+        "A visual and narrative presence that reads unmistakably as yours.",
+    },
+    {
+      name: "Originality",
+      description:
+        "Work that could only belong to this brand—not a template wearing your logo.",
+    },
+    {
+      name: "Collaboration",
+      description:
+        "Built alongside you, with your voice in the room from day one.",
+    },
+    {
+      name: "Balance",
+      description:
+        "Expressive enough to bloom, restrained enough to convert—calm, not chaotic.",
+    },
   ] as const,
   nav: [
     { href: "/", label: "Home" },
