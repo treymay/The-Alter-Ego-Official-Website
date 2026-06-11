@@ -94,15 +94,6 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
   },
   {
-    id: "erl",
-    title: "ERL",
-    category: "SHOPIFY",
-    aspect: "landscape",
-    image:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1000&q=80",
-    tagline: "California-soaked fashion flagship.",
-  },
-  {
     id: "federico-cina",
     title: "FEDERICO CINA",
     category: "SHOPIFY",
@@ -130,24 +121,6 @@ export const CASE_STUDIES: CaseStudy[] = [
         body: "Instead of a SALE banner, the archive section frames discounts as 'giving a second life' to pieces made by Romagna artisans. Clearance becomes sustainability and heritage—margin recovery without cheapening the brand.",
       },
     ],
-  },
-  {
-    id: "no-faith-studios",
-    title: "NO FAITH STUDIOS",
-    category: "SHOPIFY",
-    aspect: "landscape",
-    image:
-      "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1000&q=80",
-    tagline: "Statement streetwear with editorial bite.",
-  },
-  {
-    id: "royoko-rain",
-    title: "ROYOKO RAIN",
-    category: "SHOPIFY",
-    aspect: "wide",
-    image:
-      "https://images.unsplash.com/photo-1529139574461-a303027c1d8b?w=1400&q=80",
-    tagline: "Atmospheric fashion flagship.",
   },
   {
     id: "lux-aeterna",
@@ -259,7 +232,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     id: "trey-may",
-    title: "TREY MAY - JEWELRY",
+    title: "BLOOD & TEARS",
     category: "ART DIRECTION",
     aspect: "landscape",
     image: "/work/trey-may/03-brooch-fronds.jpg",
