@@ -183,7 +183,11 @@ export default async function CaseStudyPage({ params }: Props) {
       )}
 
       <div className="mt-20 border-t border-ink/10 pt-10 text-center">
-        <p className="font-heading text-ink">Want a flagship like this?</p>
+        <p className="font-heading text-ink">
+          {isShopify
+            ? "Want an online storefront like this?"
+            : "Want art direction like this?"}
+        </p>
         <Link
           href="/contact"
           className="mt-5 inline-block rounded-full bg-magenta px-8 py-4 font-body text-xs font-semibold uppercase tracking-widest text-white hover:bg-ink"
