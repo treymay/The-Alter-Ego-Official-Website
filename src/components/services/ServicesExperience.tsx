@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ART_DIRECTION_SERVICE, SHOPIFY_SERVICE } from "@/lib/services";
+import { WEBSITES_NOTE } from "@/lib/copy";
 import {
   ART_DIRECTION_EXAMPLE_IMAGES,
   SHOPIFY_EXAMPLE_IMAGES,
@@ -237,6 +238,9 @@ export function ServicesExperience() {
       </div>
 
       <div className="mt-20 text-center">
+        <p className="font-body mx-auto mb-8 max-w-md text-sm leading-relaxed text-ink/60">
+          {WEBSITES_NOTE}
+        </p>
         <Link
           href="/contact"
           className="inline-block rounded-full bg-magenta px-8 py-4 font-body text-xs font-semibold uppercase tracking-widest text-white hover:bg-ink"

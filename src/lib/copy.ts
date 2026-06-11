@@ -8,3 +8,6 @@ export const STUDIO_MISSION =
 export const WHO_WE_ARE = `${STUDIO_TAGLINE} ${STUDIO_MISSION}`;
 
 export const CONTACT_EMAIL = "treymayofficial@gmail.com";
+
+export const WEBSITES_NOTE =
+  "We also build standard websites on request—every project starts with a conversation about scope, timeline, and fit.";

@@ -2,7 +2,7 @@ import { ContactForm } from "@/components/contact/ContactForm";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageHero } from "@/components/layout/PageHero";
 import { GlassContainer } from "@/components/ui/GlassContainer";
-import { CONTACT_EMAIL } from "@/lib/copy";
+import { CONTACT_EMAIL, WEBSITES_NOTE } from "@/lib/copy";
 import Link from "next/link";
 
 export const metadata = {
@@ -11,7 +11,7 @@ export const metadata = {
 };
 
 const steps = [
-  "Share your brand, timeline, and whether you need Shopify, art direction, or both.",
+  "Share your brand, timeline, and whether you need Shopify, art direction, both, or a standard website.",
   "We respond with intentional next steps—not a generic intake funnel.",
   "Campaign to checkout, one visual world.",
 ];
@@ -54,6 +54,15 @@ export default function ContactPage() {
                 </li>
               ))}
             </ol>
+          </GlassContainer>
+
+          <GlassContainer className="p-8">
+            <p className="font-body text-xs font-semibold uppercase tracking-widest text-ink/50">
+              Standard websites
+            </p>
+            <p className="font-body mt-3 text-sm leading-relaxed text-ink/75">
+              {WEBSITES_NOTE}
+            </p>
           </GlassContainer>
 
           <Link
