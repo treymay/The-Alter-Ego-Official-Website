@@ -94,6 +94,35 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
   },
   {
+    id: "2hollis",
+    title: "2HOLLIS",
+    category: "SHOPIFY",
+    aspect: "wide",
+    image: "/work/2hollis.png",
+    imageSize: { width: 1024, height: 526 },
+    tagline: "Hyperpop artist hub—streams, tickets, merch, and video in one monochrome world.",
+    websiteUrl: "https://2hollis-dtbqdk3n.myshopify.com/",
+    websitePassword: "2hollis",
+    sections: [
+      {
+        heading: "Lo-fi monochrome as brand language",
+        body: "The homepage opens full-bleed on grainy black-and-white fireworks—a figure reaching upward, a centered crosshair, nothing else competing for attention. No color blocks, no rounded cards, no template chrome. The aesthetic matches 2hollis's hyperpop and EDM lane: raw, underground, internet-native. Fans recognize the world before they read a word.",
+      },
+      {
+        heading: "Navigation built around the fan journey",
+        body: "The nav is six caps links—HOME, MUSIC, SHOP, TOUR, VIDEO, CONTACT—with CART pinned top-right. Every revenue path is one click away: stream the album, buy merch, grab tickets, watch visuals, get on the list. No buried pages, no hamburger maze. For an artist site, that clarity is the conversion strategy.",
+      },
+      {
+        heading: "STAR as the streaming engine",
+        body: "Latest Project frames the fourth album STAR front and center—release date, Interscope credit, genre tags, and singles called out by name. Stream Now, Spotify, and Apple Music sit directly under the hero copy on both Home and Music. The discography page repeats Stream Now on every release, so a fan who lands anywhere still has a one-click path to DSPs.",
+      },
+      {
+        heading: "Tour momentum, VIP upsell, and captured demand",
+        body: "Upcoming dates show city, venue, and a TICKETS link inline; completed shows stay visible with a COMPLETED tag—social proof that the run is already moving. VIP Experience bundles meet-and-greet, signed laminate, exclusive merch, and early entry. Email capture runs through the footer and tour alerts (Laylo integration), turning one visit into tour announcements, unreleased tracks, and drop notifications.",
+      },
+    ],
+  },
+  {
     id: "federico-cina",
     title: "FEDERICO CINA",
     category: "SHOPIFY",
