@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
     return [
       { source: "/blog", destination: "/reviews", permanent: true },
       { source: "/blog/:slug", destination: "/reviews", permanent: true },
+      { source: "/work/trey-may", destination: "/work/west-palm-reverie", permanent: true },
     ];
   },
 };

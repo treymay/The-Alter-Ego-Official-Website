@@ -260,18 +260,18 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
   },
   {
-    id: "trey-may",
-    title: "BLOOD & TEARS",
+    id: "west-palm-reverie",
+    title: "WEST PALM REVERIE",
     category: "ART DIRECTION",
     aspect: "landscape",
     image: "/work/trey-may/03-brooch-fronds.jpg",
     imageSize: { width: 1024, height: 682 },
     tagline:
-      "Blood & Tears — narrative jewelry, designed and fabricated by Trey, shot like a campaign.",
+      "West Palm Reverie — narrative jewelry, designed and fabricated by Trey, shot like a campaign.",
     websiteUrl: "https://www.treymayofficial.com/works/blood-and-tears",
     sections: [
       {
-        heading: "The piece: Blood & Tears",
+        heading: "The piece: West Palm Reverie",
         body: "An eye that weeps what words can't hold. Designed and fabricated by Trey as his final for Introduction to Jewelry at SCAD, the brooch is an eye that cries blood—a monument to the specific agony of watching someone you loved move on. Brass and copper sheet metal, custom wire-fabricated eyelashes, pearls and ruby-red gemstone beads for the tears, a UV-resin-sealed iris, and a hand-soldered hinge and catch so it wears like a proper brooch.",
       },
       {
@@ -290,7 +290,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     gallery: [
       {
         src: "/work/trey-may/02-brooch-portrait.jpg",
-        alt: "Blood & Tears brooch worn on a white blazer in front of historic West Palm Beach architecture",
+        alt: "West Palm Reverie brooch worn on a white blazer in front of historic West Palm Beach architecture",
         width: 682,
         height: 1024,
       },
@@ -302,7 +302,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
       {
         src: "/work/trey-may/03-brooch-fronds.jpg",
-        alt: "Close-up of the Blood & Tears brooch through palm fronds",
+        alt: "Close-up of the West Palm Reverie brooch through palm fronds",
         width: 1024,
         height: 682,
       },

@@ -31,7 +31,7 @@ export const ART_DIRECTION_EXAMPLE_IMAGES: ServiceExampleImage[] = [
   },
   {
     src: "/work/trey-may/02-brooch-portrait.jpg",
-    alt: "Blood & Tears brooch worn on a white blazer",
+    alt: "West Palm Reverie brooch worn on a white blazer",
     label: "Trey May Jewelry",
   },
   {

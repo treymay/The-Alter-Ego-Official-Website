@@ -9,7 +9,7 @@ const FEATURED = {
   hero: {
     label: "Lookbook · Campaign",
     src: "/work/trey-may/03-brooch-fronds.jpg",
-    alt: "Blood & Tears brooch campaign shot through palm fronds in West Palm Beach",
+    alt: "West Palm Reverie brooch campaign shot through palm fronds in West Palm Beach",
   },
   secondary: [
     {

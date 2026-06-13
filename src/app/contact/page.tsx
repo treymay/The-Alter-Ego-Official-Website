@@ -1,4 +1,5 @@
 import { ContactForm } from "@/components/contact/ContactForm";
+import { ContactCalendly } from "@/components/contact/ContactCalendly";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageHero } from "@/components/layout/PageHero";
 import { GlassContainer } from "@/components/ui/GlassContainer";
@@ -12,7 +13,7 @@ export const metadata = {
 
 const steps = [
   "Share your brand, timeline, and whether you need Shopify, art direction, both, or a standard website.",
-  "We respond with intentional next steps—not a generic intake funnel.",
+  "Book a call on the calendar, or send a message — we'll respond with intentional next steps.",
   "Campaign to checkout, one visual world.",
 ];
 
@@ -75,6 +76,7 @@ export default function ContactPage() {
 
         <div>
           <ContactForm />
+          <ContactCalendly />
         </div>
       </div>
     </PageShell>
